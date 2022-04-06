@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-04-06T13:58:53 IST" name="Suite" finished-at="2022-04-06T13:59:30 IST" duration-ms="36509">
+    <groups>
+    </groups>
+    <test started-at="2022-04-06T13:58:53 IST" name="Parameterstest" finished-at="2022-04-06T13:59:30 IST" duration-ms="36509">
+      <class name="testngbasics.ParameterSample">
+        <test-method signature="demo(java.lang.String)[pri:0, instance:testngbasics.ParameterSample@78123e82]" started-at="2022-04-06T13:58:53 IST" name="demo" finished-at="2022-04-06T13:59:29 IST" duration-ms="36410" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://opensource-demo.orangehrmlive.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demo -->
+      </class> <!-- testngbasics.ParameterSample -->
+    </test> <!-- Parameterstest -->
+  </suite> <!-- Suite -->
+</testng-results>
