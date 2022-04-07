@@ -1,0 +1,24 @@
+package robotclass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RobotDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\seleniums\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.qabible.in/payrollapp/");
+		driver.findElement(By.id("loginform-username")).click();
+		driver.findElement(By.id("loginform-username")).sendKeys("carol");
+
+		driver.findElement(By.id("loginform-password")).click();
+		driver.findElement(By.id("loginform-password")).sendKeys("1q2w3e4r");
+
+		driver.findElement(By.xpath("//button[@name='login-button']")).click();
+
+	}
+
+}
