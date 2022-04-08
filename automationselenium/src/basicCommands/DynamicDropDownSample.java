@@ -8,10 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DynamicDropDownSample {
-	
+
 	public static void main(String[] args) {
-		
-		
+
 		System.setProperty("webdriver.chrome.driver", "C:\\seleniums\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://selenium.obsqurazone.com/jquery-select.php");
@@ -22,8 +21,8 @@ public class DynamicDropDownSample {
 		// driver.findElement(By.xpath("//input[@aria-label='Search'][1]")).sendKeys("Indiana");
 
 		// xpath of role option is common for all
-		List<WebElement> options = driver.findElements(By.xpath("//li[@role='option']"));
-		for (WebElement option : options) {
+		List<WebElement> alloptions = driver.findElements(By.xpath("//li[@role='option']"));
+		for (WebElement option : alloptions) {
 			if (option.getText().equalsIgnoreCase("Indiana")) {
 				option.click();
 				break;

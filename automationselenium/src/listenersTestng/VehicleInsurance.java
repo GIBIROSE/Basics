@@ -8,6 +8,7 @@ public class VehicleInsurance {
 	@Test(priority=1)
 	public void webLoginVehicle() {
 		System.out.println("Vehicle TC 1");
+		
 	}
 
 	@Test(priority=2)
