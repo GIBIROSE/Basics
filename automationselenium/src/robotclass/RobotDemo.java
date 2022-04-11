@@ -3,6 +3,7 @@ package robotclass;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,8 +24,13 @@ public class RobotDemo {
 		driver.findElement(By.id("loginform-password")).sendKeys("1q2w3e4r");
 
 		driver.findElement(By.xpath("//button[@name='login-button']")).click();
+		
+		
+		//giving implicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
 
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
 		// driver.findElement(By.linkText("Invoice")).click();
 

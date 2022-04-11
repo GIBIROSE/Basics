@@ -13,7 +13,8 @@ public class DoubleClick {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Binu\\Desktop\\seleniums\\chromedriver_win32\\chromedriver.exe");
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/");
-		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		
 		driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).click();
 		driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("mobiles");
 		

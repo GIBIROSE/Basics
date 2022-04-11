@@ -1,5 +1,7 @@
 package homeworkpgm;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,9 +39,16 @@ public class OrangeHrmSite {
 		driver.findElement(By.name("organization")).sendKeys("company1");
 
 		driver.findElement(By.id("modal_confirm_buy")).click();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		driver.findElement(By.id("welcome")).click();// welcome click
-		Thread.sleep(3000);
+		
+		//giving implicit wait
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		
+		//Thread.sleep(3000);
 		driver.findElement(By.linkText("Logout")).click();
 	}
 
