@@ -4,7 +4,10 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrangeHrmLoginLogout {
 
@@ -15,6 +18,9 @@ public class OrangeHrmLoginLogout {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/");
 		driver.manage().window().maximize();// maximize window
+		//implicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
 		driver.findElement(By.id("txtUsername")).click();// clicking on username box
 		driver.findElement(By.id("txtUsername")).sendKeys("Admin");// entering username
 		driver.findElement(By.name("txtPassword")).click();// clicking password textbox
@@ -27,7 +33,7 @@ public class OrangeHrmLoginLogout {
 
 		driver.findElement(By.id("buyBtn1")).click();// Request click
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
 		//Thread.sleep(3000);
 
 		driver.findElement(By.id("email")).click();// email click
@@ -41,9 +47,14 @@ public class OrangeHrmLoginLogout {
 		driver.findElement(By.name("organization")).sendKeys("company1");
 
 		driver.findElement(By.id("modal_confirm_buy")).click();
+		
+		WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
+		        .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='welcome']")));
+		firstResult.click();
+		
 		// why not clicking with implcit wait
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//a[@id='welcome']")).click();
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//a[@id='welcome']")).click();
 
 		//driver.findElement(By.id("welcome")).click();// welcome click
 		//Thread.sleep(3000);
