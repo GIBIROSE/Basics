@@ -9,7 +9,7 @@ import with_pagefactory.LoginPages;
 
 public class LoginTestWithPageFactory {
 	@Test
-	public void verifyLogin() {
+	public void verifyLoginTest() {
 
 		System.setProperty("webdriver.chrome.driver", "C:\\seleniums\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();

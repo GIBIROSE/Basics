@@ -7,7 +7,9 @@ public class LoginPage {
 	
 	
 	WebDriver driver;
-	By username=By.id("loginform-username");
+	//By username=By.id("loginform-username");
+	By username=By.xpath("//input[@id='loginform-username']");
+	
 	By password=By.xpath("//input[@id='loginform-password']");
 	By login=By.xpath("//button[@name='login-button']");
 	
