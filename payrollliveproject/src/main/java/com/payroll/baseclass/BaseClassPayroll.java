@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseClassPayroll {
@@ -27,6 +28,7 @@ public class BaseClassPayroll {
 
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
+		String urlProject = prop.getProperty("url");
 		
 
 		if (browserName.equalsIgnoreCase("chrome")) {
@@ -39,12 +41,15 @@ public class BaseClassPayroll {
 
 		}
 		else if (browserName.equalsIgnoreCase("edge")) {
-			driver = new FirefoxDriver();
+			driver =  new EdgeDriver();
 			System.setProperty("webdriver.edge.driver", "C:\\seleniums\\edgedriver_win64\\msedgedriver.exe");
 		
 		}
+		driver.get("urlProject");
+		//driver.get("https://www.qabible.in/payrollapp/site/login");
 		return driver;
-
+		
+		
 	}
 }
 
