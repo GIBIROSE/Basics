@@ -3,7 +3,7 @@
 <suite name="pjct">
 	<test thread-count="5" name="Test">
 
-		<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="chrome" />
 		<classes>
 
 

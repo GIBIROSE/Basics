@@ -1,33 +1,30 @@
 package com.payroll.testcases;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.payroll.baseclass.Base;
+import com.payroll.baseclass.BaseClass;
 import com.payroll.pageobjects.LoginPage;
 
-public class LoginTest extends Base {
+public class LoginTest extends BaseClass {
+
+	@BeforeTest
+	public void launching() {
+		launchApp();
+	}
 
 	@Test
-	public void loginCase() {
-		/*driver.get(url);
-		LoginPage login = new LoginPage(driver);
-		login.setUserName(username);
-		login.setPassword(password);
-		login.clickSubmit();
-		
-		if(driver.getTitle().equals("Login"))
-		{
+	public void loginTest_001() {
+
+		LoginPage loginpg = new LoginPage();
+		loginpg.login(prop.getProperty("username"), prop.getProperty("password"));
+		if (driver.getTitle().equals("Login")) {
 			Assert.assertTrue(true);
-		}
-		else {
+		} else {
 			Assert.assertTrue(false);
-		}*/
-		driver.get("https://www.youtube.com/");
-		System.out.println("hi");
-		
-		
-		
+		}
+
 	}
 
 }

@@ -5,14 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+import com.payroll.actiondriver.Action;
+import com.payroll.baseclass.BaseClass;
 
-	WebDriver ldriver;
+public class LoginPage extends BaseClass {
 
-	public LoginPage(WebDriver rdriver) {
 
-		ldriver = rdriver;
-		PageFactory.initElements(rdriver, this);
+
+	public LoginPage() {
+
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(id = "loginform-username")
@@ -27,22 +29,11 @@ public class LoginPage {
 	@FindBy(linkText = "reset it")
 	WebElement resetClick;
 
-	public void setUserName(String uname) {
-
-		textUserName.sendKeys(uname);
-
-	}
-
-	public void setPassword(String pwd) {
-
-		txtPassword.sendKeys(pwd);
-
-	}
-
-	public void clickSubmit() {
-
-		loginButton.click();
-
+	public void login(String uname, String pwd) {
+		Action action = new Action();
+		action.type(textUserName, uname);
+		action.type(txtPassword, pwd);
+		action.click(driver, loginButton);
 	}
 
 }
