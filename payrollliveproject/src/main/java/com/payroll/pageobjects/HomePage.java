@@ -1,5 +1,6 @@
 package com.payroll.pageobjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,9 +8,9 @@ import com.payroll.actiondriver.Action;
 
 import com.payroll.baseclass.BaseClass;
 
-public class HomePage extends LoginPage{
+public class HomePage extends BaseClass {
 	
-	
+	WebDriver driver;
 	
 	public HomePage() {
 
@@ -27,7 +28,8 @@ public class HomePage extends LoginPage{
 	@FindBy(xpath="//p[normalize-space()='Welcome to Payroll Application']")
 	WebElement welcomeMesg;
 	
-	@FindBy(xpath="//img[@alt='logo']")
+	//@FindBy(xpath="//img[@alt='logo']")
+	@FindBy(xpath="//div[@class='col-sm-2 logo']")
 	WebElement logoApp;
 	
 	@FindBy(xpath="//div[@class='col-sm-6 page-title'] //h1")
@@ -37,8 +39,12 @@ public class HomePage extends LoginPage{
 		
 	}
 	public boolean validateLogo() {
-		Action action = new Action();
-		return action.isDisplayed(driver, logoApp);
+		//Action action = new Action();
+		//return action.isDisplayed(driver, logoApp);
+		dashboard.click();
+		boolean loginButtonVerify=logoApp.isDisplayed();
+		return loginButtonVerify;
+		
 	}
 	
 	public void validateTitle() {

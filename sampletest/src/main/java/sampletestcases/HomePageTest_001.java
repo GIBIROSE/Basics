@@ -15,7 +15,7 @@ public class HomePageTest_001 {
 	
 	
 	@Test
-	public void verifyLoginTest() {
+	public void verifyLoginTest() throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver", "C:\\seleniums\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -28,16 +28,28 @@ public class HomePageTest_001 {
 		driver.findElement(By.xpath("//button[@name='login-button']")).click();
 		
 		
-		Home1 hg = new Home1();
+		/*Home1 hg = new Home1();
 		if(hg.welcomeMesg.getText().equals("Welcome to Payroll Application")) {
 			System.out.println("success");
 			Assert.assertTrue(true);
 		} else {
 			System.out.println("failure");
 			Assert.assertTrue(false);
-		}
+		}*/
 
 		
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@href='/payrollapp/client/index']")).click();
+		driver.findElement(By.id("clientsearch-client_name")).click();
+		
+		driver.findElement(By.id("clientsearch-client_name")).sendKeys("sam");
+		
+		
+		driver.findElement(By.xpath("//button[@class='btn btn-primary']")).click();
+		//driver.findElement(By.xpath("//a[@href='/payrollapp/client/index']")).click();
+		
+		
+	
 	}
 
 }

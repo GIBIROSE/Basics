@@ -10,7 +10,7 @@ import com.payroll.baseclass.BaseClass;
 
 public class LoginPage extends BaseClass {
 
-
+	Action action = new Action();
 
 	public LoginPage() {
 
@@ -28,12 +28,36 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(linkText = "reset it")
 	WebElement resetClick;
+	
+	@FindBy(xpath="//h1[normalize-space()='Login']")
+	WebElement loginTxt;
+	
+	public String loginText() {
+		String txtLogin=loginTxt.getText();
+		return txtLogin;
+	}
+	
+	
 
 	public void login(String uname, String pwd) {
-		Action action = new Action();
+		//Action action = new Action();
 		action.type(textUserName, uname);
 		action.type(txtPassword, pwd);
 		action.click(driver, loginButton);
+	}
+	
+	
+	public String verifyReset() {
+		action.click(driver, resetClick);
+	    String output=driver.getCurrentUrl();
+	    return output;
+	}
+	
+	
+	
+	public boolean loginButtonEnabled() {
+		boolean valueLoginButton=loginButton.isEnabled();
+		return valueLoginButton;
 	}
 
 }

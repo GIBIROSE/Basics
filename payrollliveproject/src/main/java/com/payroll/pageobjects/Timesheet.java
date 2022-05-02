@@ -1,5 +1,102 @@
 package com.payroll.pageobjects;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 public class Timesheet {
+	WebDriver driver;
+
+	public Timesheet() {
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/index']")
+	WebElement timeSheetClick;
+
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement approveTimeSheet;
+
+	@FindBy(xpath = "//button[@value='playslip']")
+	WebElement generatePaySlip;
+
+	@FindBy(xpath = "//button[@value='invoice']")
+	WebElement generateInvoice;
+
+	@FindBy(xpath = "//a[@data-sort='client_id']")
+	WebElement pendingTimeSheetsClientName;
+	
+	
+	@FindBy(xpath="//a[@href='/payrollapp/timesheet/approvedlist']")
+	WebElement approvedTimeSheets;
+	
+	
+	@FindBy(xpath="//a[@href='/payrollapp/timesheet/create']")
+	WebElement createTimeSheets;
+	
+	@FindBy(xpath="//button[@class='btn btn-success']")
+	WebElement createTimeSheetSkip;//after skip switch to alert
+	
+	@FindBy(xpath="//input[@id='file-logo']")
+	WebElement createTimeSheetBrowse;// test to upload file
+	
+	@FindBy(xpath="//span[normalize-space()='Upload']")
+	WebElement createTimeSheetUpload;
+	
+	
+	@FindBy(id="timesheet-branch_id")
+	WebElement createTimeSheetSelectBranch;
+	
+	@FindBy(xpath="//select[@id='timesheet-division_id']")
+	WebElement createTimeSheetSelectDivision;
+	
+	@FindBy(id="timesheet-timesheet_number")
+	WebElement createTimeSheetNumber;
+	
+	
+	@FindBy(xpath="//div[@class='form-group field-timesheet-client_id required']//span[@role='combobox']")
+	WebElement createTimeSheetSelectClient;
+	
+	@FindBy(id="timesheet-date")
+	WebElement createTimeSheetWeekEndDate;
+	
+	@FindBy(id="timesheet-category")
+	WebElement  createTimeSheetSelectCategory;
+	
+	@FindBy(id="select2-timesheet-worker_id-container")
+	WebElement createTimeSheetSelectWorker;
+	
+	
+	@FindBy(xpath="//select[@id='rate-0-type_id']")
+	WebElement createTimeSheetDescription;
+	
+	
+	@FindBy(id="rate-0-units")
+	WebElement createTimeSheetRatesUnits;
+	
+	
+	@FindBy(xpath="//input[@id='rate-0-pay']")
+	WebElement createTimeSheetRatesPay;
+	
+	
+	@FindBy(id="rate-0-bill")
+	WebElement createTimeSheetBill;
+	
+	@FindBy(xpath="//button[normalize-space()='Save']")
+	WebElement createTimeSheetSaveButton;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

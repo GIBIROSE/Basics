@@ -12,8 +12,19 @@ public class Company extends LoginPage {
 	}
 	
 	
+	@FindBy(xpath="//a[@href='/payrollapp/company/index']")
+	WebElement companyButton;
+	
 	@FindBy(xpath="//div[@class='site-error']/h1")
 	WebElement errorMesg;
+	
+	
+	public String companyBtnClick() {
+		companyButton.click();
+		String error=errorMesg.getText();
+		return error ;
+	}
+	
 	
 	
 	public String errorType() {

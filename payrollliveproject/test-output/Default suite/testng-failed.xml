@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="other.CompnyTry">
+      <class name="com.payroll.testcases.HomePageTest">
         <methods>
-          <include name="displayDetails"/>
+          <include name="loadConfig"/>
+          <include name="homeValidateLogo"/>
+          <include name="launching"/>
         </methods>
-      </class> <!-- other.CompnyTry -->
+      </class> <!-- com.payroll.testcases.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
