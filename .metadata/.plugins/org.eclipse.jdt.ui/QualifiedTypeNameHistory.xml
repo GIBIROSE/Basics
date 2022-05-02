@@ -19,7 +19,6 @@
     <fullyQualifiedTypeName name="org.testng.annotations.BeforeSuite"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.ie.InternetExplorerDriver"/>
     <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
-    <fullyQualifiedTypeName name="com.payroll.pageobjects.LoginPage"/>
     <fullyQualifiedTypeName name="org.testng.annotations.BeforeTest"/>
     <fullyQualifiedTypeName name="sampletestpageobj.Home1"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
@@ -44,15 +43,12 @@
     <fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFWorkbook"/>
     <fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFSheet"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Row"/>
     <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Cell"/>
-    <fullyQualifiedTypeName name="com.payroll.baseclass.BaseClass"/>
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Company"/>
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Clients"/>
     <fullyQualifiedTypeName name="org.apache.poi.openxml4j.exceptions.InvalidFormatException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="com.payroll.utilities.ExcelLibrary"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Logout"/>
     <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
     <fullyQualifiedTypeName name="com.payroll.actiondriver.Action"/>
+    <fullyQualifiedTypeName name="com.payroll.baseclass.BaseClass"/>
+    <fullyQualifiedTypeName name="com.payroll.pageobjects.LoginPage"/>
+    <fullyQualifiedTypeName name="com.payroll.utilities.ExcelLibrary"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

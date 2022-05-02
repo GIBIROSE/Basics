@@ -2,38 +2,38 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-02T07:37:50 IST" name="Default suite" finished-at="2022-05-02T07:38:13 IST" duration-ms="23561">
+  <suite started-at="2022-05-02T09:27:50 IST" name="Default suite" finished-at="2022-05-02T09:28:11 IST" duration-ms="20536">
     <groups>
     </groups>
-    <test started-at="2022-05-02T07:37:50 IST" name="Default test" finished-at="2022-05-02T07:38:13 IST" duration-ms="23561">
+    <test started-at="2022-05-02T09:27:50 IST" name="Default test" finished-at="2022-05-02T09:28:11 IST" duration-ms="20536">
       <class name="com.payroll.testcases.HomePageTest">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.payroll.testcases.HomePageTest@2657d4dd]" started-at="2022-05-02T07:37:50 IST" name="loadConfig" finished-at="2022-05-02T07:37:50 IST" duration-ms="21" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.payroll.testcases.HomePageTest@5340477f]" started-at="2022-05-02T09:27:50 IST" name="loadConfig" finished-at="2022-05-02T09:27:50 IST" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="launching()[pri:0, instance:com.payroll.testcases.HomePageTest@2657d4dd]" started-at="2022-05-02T07:37:50 IST" name="launching" finished-at="2022-05-02T07:38:13 IST" depends-on-methods="com.payroll.baseclass.BaseClass.loadConfig" duration-ms="23407" status="PASS">
+        <test-method is-config="true" signature="launching()[pri:0, instance:com.payroll.testcases.HomePageTest@5340477f]" started-at="2022-05-02T09:27:50 IST" name="launching" finished-at="2022-05-02T09:28:11 IST" depends-on-methods="com.payroll.baseclass.BaseClass.loadConfig" duration-ms="20398" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launching -->
-        <test-method signature="homeValidateLogo()[pri:0, instance:com.payroll.testcases.HomePageTest@2657d4dd]" started-at="2022-05-02T07:38:13 IST" name="homeValidateLogo" finished-at="2022-05-02T07:38:13 IST" duration-ms="29" status="FAIL">
+        <test-method signature="homeValidateLogo()[pri:0, instance:com.payroll.testcases.HomePageTest@5340477f]" started-at="2022-05-02T09:28:11 IST" name="homeValidateLogo" finished-at="2022-05-02T09:28:11 IST" duration-ms="24" status="FAIL">
           <exception class="org.openqa.selenium.json.JsonException">
             <message>
               <![CDATA[java.lang.reflect.InvocationTargetException
 Build info: version: '4.1.2', revision: '9a5a329c5a'
 System info: host: 'LAPTOP-BM75QIK9', ip: '192.168.29.165', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [edc47179ec25b96b773a151537d922d2, actions {actions=[org.openqa.selenium.interactions.Sequence@4613311f]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.127, chrome: {chromedriverVersion: 100.0.4896.60 (6a5d10861ce8..., userDataDir: C:\Users\Binu\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:58604}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58604/devtoo..., se:cdpVersion: 100.0.4896.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: edc47179ec25b96b773a151537d922d2]]>
+Command: [443c803f34027298ddc07e3389486555, actions {actions=[org.openqa.selenium.interactions.Sequence@6540cf1d]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.127, chrome: {chromedriverVersion: 100.0.4896.60 (6a5d10861ce8..., userDataDir: C:\Users\Binu\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:58876}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58876/devtoo..., se:cdpVersion: 100.0.4896.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 443c803f34027298ddc07e3389486555]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.json.JsonException: java.lang.reflect.InvocationTargetException
 Build info: version: '4.1.2', revision: '9a5a329c5a'
 System info: host: 'LAPTOP-BM75QIK9', ip: '192.168.29.165', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [edc47179ec25b96b773a151537d922d2, actions {actions=[org.openqa.selenium.interactions.Sequence@4613311f]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.127, chrome: {chromedriverVersion: 100.0.4896.60 (6a5d10861ce8..., userDataDir: C:\Users\Binu\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:58604}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58604/devtoo..., se:cdpVersion: 100.0.4896.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: edc47179ec25b96b773a151537d922d2
+Command: [443c803f34027298ddc07e3389486555, actions {actions=[org.openqa.selenium.interactions.Sequence@6540cf1d]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.127, chrome: {chromedriverVersion: 100.0.4896.60 (6a5d10861ce8..., userDataDir: C:\Users\Binu\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:58876}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58876/devtoo..., se:cdpVersion: 100.0.4896.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 443c803f34027298ddc07e3389486555
 at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:362)
 at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:154)
 at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:287)

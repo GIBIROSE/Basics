@@ -26,77 +26,68 @@ public class Timesheet {
 
 	@FindBy(xpath = "//a[@data-sort='client_id']")
 	WebElement pendingTimeSheetsClientName;
-	
-	
-	@FindBy(xpath="//a[@href='/payrollapp/timesheet/approvedlist']")
+
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/view?id=9632']//span[@class='glyphicon glyphicon-eye-open']")
+	WebElement pendingTimeSheetView;
+
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/update?id=9699']//span[@class='glyphicon glyphicon-pencil']")
+	WebElement pendingTimeSheetUpdate;
+
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/approvedlist']")
 	WebElement approvedTimeSheets;
-	
-	
-	@FindBy(xpath="//a[@href='/payrollapp/timesheet/create']")
+
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/view?id=61']//span[@class='glyphicon glyphicon-eye-open']")
+	WebElement viewApprovedTimeSheets;
+
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/create']")
 	WebElement createTimeSheets;
-	
-	@FindBy(xpath="//button[@class='btn btn-success']")
-	WebElement createTimeSheetSkip;//after skip switch to alert
-	
-	@FindBy(xpath="//input[@id='file-logo']")
+
+	@FindBy(xpath = "//button[@class='btn btn-success']")
+	WebElement createTimeSheetSkip;// after skip switch to alert
+
+	@FindBy(xpath = "//input[@id='file-logo']")
 	WebElement createTimeSheetBrowse;// test to upload file
-	
-	@FindBy(xpath="//span[normalize-space()='Upload']")
+
+	@FindBy(xpath = "//span[normalize-space()='Upload']")
 	WebElement createTimeSheetUpload;
-	
-	
-	@FindBy(id="timesheet-branch_id")
+
+	@FindBy(id = "timesheet-branch_id")
 	WebElement createTimeSheetSelectBranch;
-	
-	@FindBy(xpath="//select[@id='timesheet-division_id']")
+
+	@FindBy(xpath = "//select[@id='timesheet-division_id']")
 	WebElement createTimeSheetSelectDivision;
-	
-	@FindBy(id="timesheet-timesheet_number")
+
+	@FindBy(id = "timesheet-timesheet_number")
 	WebElement createTimeSheetNumber;
-	
-	
-	@FindBy(xpath="//div[@class='form-group field-timesheet-client_id required']//span[@role='combobox']")
+
+	@FindBy(xpath = "//div[@class='form-group field-timesheet-client_id required']//span[@role='combobox']")
 	WebElement createTimeSheetSelectClient;
-	
-	@FindBy(id="timesheet-date")
+
+	@FindBy(id = "timesheet-date")
 	WebElement createTimeSheetWeekEndDate;
-	
-	@FindBy(id="timesheet-category")
-	WebElement  createTimeSheetSelectCategory;
-	
-	@FindBy(id="select2-timesheet-worker_id-container")
+
+	@FindBy(id = "timesheet-category")
+	WebElement createTimeSheetSelectCategory;
+
+	@FindBy(id = "select2-timesheet-worker_id-container")
 	WebElement createTimeSheetSelectWorker;
-	
-	
-	@FindBy(xpath="//select[@id='rate-0-type_id']")
+
+	@FindBy(xpath = "//select[@id='rate-0-type_id']")
 	WebElement createTimeSheetDescription;
-	
-	
-	@FindBy(id="rate-0-units")
+
+	@FindBy(id = "rate-0-units")
 	WebElement createTimeSheetRatesUnits;
-	
-	
-	@FindBy(xpath="//input[@id='rate-0-pay']")
+
+	@FindBy(xpath = "//input[@id='rate-0-pay']")
 	WebElement createTimeSheetRatesPay;
-	
-	
-	@FindBy(id="rate-0-bill")
+
+	@FindBy(id = "rate-0-bill")
 	WebElement createTimeSheetBill;
-	
-	@FindBy(xpath="//button[normalize-space()='Save']")
+
+	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement createTimeSheetSaveButton;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@FindBy(xpath = "//th[normalize-space()='Timesheet Number']")
+	WebElement createdTimeSheetShowBtn;
 
 }

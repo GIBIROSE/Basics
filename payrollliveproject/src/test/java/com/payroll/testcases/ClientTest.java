@@ -26,7 +26,7 @@ public class ClientTest extends CompanyTest {
 	}
 
 	@Test
-	public void verifycreateClientDetails() {
+	public void verifycreateClientDetails() throws Exception {
 		String actual = clients.mainStep();
 		String expected = "Client Name";
 		Assert.assertEquals(actual, expected);

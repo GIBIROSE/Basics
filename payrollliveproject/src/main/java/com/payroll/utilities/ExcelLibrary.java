@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -19,7 +20,8 @@ public class ExcelLibrary {
 	public ArrayList<String> getData(String Testcase) throws Exception {
 		ArrayList<String> a = new ArrayList<String>();
 		// TODO Auto-generated method stub
-		FileInputStream fil = new FileInputStream("D:\\New folder\\DataDriven.xlsx");
+		FileInputStream fil = new FileInputStream(
+				"C:\\traininingAutomationprograms\\payrollliveproject\\src\\test\\resources\\testdata.XLSX");
 		XSSFWorkbook wb = new XSSFWorkbook(fil);
 		int sheets = 0;
 		// Accessing the sheets of the workbook
@@ -28,7 +30,7 @@ public class ExcelLibrary {
 		// iterating through all the sheets and finding the required one
 		for (int i = 0; i < sheets; i++) {
 			// fetching the required sheet
-			if (wb.getSheetName(i).equalsIgnoreCase("Smoke")) {
+			if (wb.getSheetName(i).equalsIgnoreCase("client")) {
 				// working on the right sheeet
 				XSSFSheet sheet = wb.getSheetAt(i);
 				Iterator<Row> rows = sheet.rowIterator();
@@ -60,13 +62,23 @@ public class ExcelLibrary {
 						while (cell.hasNext())
 						// type = string
 						{
-							a.add(cell.next().getStringCellValue());
+
+							Cell c = cell.next();
+							if (c.getCellType() == CellType.STRING) {
+
+								a.add(c.getStringCellValue());
+							}
+
+							else {
+								a.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+							}
+							// a.add(cell.next().getStringCellValue());
 
 						}
 
 						// case 2 numeric
 
-						a.add(NumberToTextConverter.toText(cell.next().getNumericCellValue()));
+						//a.add(NumberToTextConverter.toText(cell.next().getNumericCellValue()));
 
 					}
 
@@ -75,6 +87,5 @@ public class ExcelLibrary {
 
 		}
 		return a;
-
 	}
 }

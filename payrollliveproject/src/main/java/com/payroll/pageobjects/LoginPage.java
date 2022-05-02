@@ -39,11 +39,12 @@ public class LoginPage extends BaseClass {
 	
 	
 
-	public void login(String uname, String pwd) {
+	public HomePage login(String uname, String pwd) {
 		//Action action = new Action();
 		action.type(textUserName, uname);
 		action.type(txtPassword, pwd);
 		action.click(driver, loginButton);
+		return new HomePage();
 	}
 	
 	

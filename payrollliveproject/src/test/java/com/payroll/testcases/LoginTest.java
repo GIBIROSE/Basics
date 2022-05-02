@@ -18,7 +18,7 @@ public class LoginTest extends BaseClass {
 	@BeforeTest
 	public void launching() {
 		launchApp();
-	}
+	} 
 
 	@Test
 	public void verifyTxtLogin() {

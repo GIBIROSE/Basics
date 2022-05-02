@@ -1,5 +1,7 @@
 package com.payroll.pageobjects;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.payroll.actiondriver.Action;
 import com.payroll.baseclass.BaseClass;
+import com.payroll.utilities.ExcelLibrary;
 
 public class Clients extends BaseClass {
 
@@ -101,8 +104,8 @@ public class Clients extends BaseClass {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement saveButton;
-	
-	@FindBy(xpath="//th[normalize-space()='Client Name']")
+
+	@FindBy(xpath = "//th[normalize-space()='Client Name']")
 	WebElement savedClientDetails;
 
 	@FindBy(xpath = "//a[@href='/payrollapp/client/invoice?id=755']")
@@ -137,11 +140,13 @@ public class Clients extends BaseClass {
 		action.click(driver, resetBtn);
 	}
 
-	public String mainStep() {
-
+	public String mainStep() throws Exception {
+		//ExcelLibrary lib = new ExcelLibrary();
 		action.click(driver, createClient);
 		action.click(driver, txtBranch);
-
+        // ArrayList excelData=lib.getData("clients");
+         
+         //what to do next
 		action.selectBySendkeys("Alpha_new", txtBranch);
 
 		action.click(driver, txtDivision);
@@ -162,9 +167,9 @@ public class Clients extends BaseClass {
 
 		action.selectByIndex(txtVatRate, 3);
 		action.click(driver, saveButton);
-		String actual=savedClientDetails.getText();
+		String actual = savedClientDetails.getText();
 		return actual;
-		
+
 	}
 
 	public void createClientBranchSelect() {
