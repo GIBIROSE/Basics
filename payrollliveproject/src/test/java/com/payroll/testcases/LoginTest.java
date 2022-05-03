@@ -33,7 +33,7 @@ public class LoginTest extends BaseClass {
 	
 	@Test
 	public void loginTestTitle() throws InterruptedException {
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		LoginPage loginpg = new LoginPage();
 
 		loginpg.login(prop.getProperty("username"), prop.getProperty("password"));

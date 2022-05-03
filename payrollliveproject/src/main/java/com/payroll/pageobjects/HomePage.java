@@ -10,7 +10,7 @@ import com.payroll.baseclass.BaseClass;
 
 public class HomePage extends BaseClass {
 	
-	WebDriver driver;
+	//WebDriver driver;
 	
 	public HomePage() {
 
@@ -28,24 +28,34 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath="//p[normalize-space()='Welcome to Payroll Application']")
 	WebElement welcomeMesg;
 	
-	//@FindBy(xpath="//img[@alt='logo']")
-	@FindBy(xpath="//div[@class='col-sm-2 logo']")
+	@FindBy(xpath="//img[@alt='logo']")
+	//@FindBy(xpath="//div[@class='col-sm-2 logo']")
 	WebElement logoApp;
 	
 	@FindBy(xpath="//div[@class='col-sm-6 page-title'] //h1")
 	WebElement titleApp;
 	
-	public void welcome() {
-		
-	}
+	@FindBy(xpath = "//a[@href='/payrollapp/client/index']")
+	WebElement clientBtn;
 	public boolean validateLogo() {
 		//Action action = new Action();
 		//return action.isDisplayed(driver, logoApp);
-		dashboard.click();
-		boolean loginButtonVerify=logoApp.isDisplayed();
-		return loginButtonVerify;
-		
+		//dashboard.click();
+		//boolean loginButtonVerify=logoApp.isDisplayed();
+		//return loginButtonVerify;
+		Action action = new Action();
+		return action.isDisplayed(driver, logoApp);
 	}
+	
+	public Clients verifyClickClient() {
+		Action action = new Action();
+		
+		action.isDisplayed(driver, clientBtn);
+		action.click(driver,clientBtn );
+		return new Clients();
+	
+	}
+	
 	
 	public void validateTitle() {
 		Action action = new Action();

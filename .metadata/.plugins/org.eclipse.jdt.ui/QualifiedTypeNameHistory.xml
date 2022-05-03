@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Wait"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.FluentWait"/>
     <fullyQualifiedTypeName name="java.time.Duration"/>
     <fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
@@ -30,9 +28,7 @@
     <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.edge.EdgeDriver"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
-    <fullyQualifiedTypeName name="org.testng.annotations.BeforeMethod"/>
     <fullyQualifiedTypeName name="org.testng.annotations.Parameters"/>
-    <fullyQualifiedTypeName name="org.testng.annotations.AfterMethod"/>
     <fullyQualifiedTypeName name="org.testng.ITestResult"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.TakesScreenshot"/>
     <fullyQualifiedTypeName name="java.io.File"/>
@@ -49,15 +45,19 @@
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Clients"/>
     <fullyQualifiedTypeName name="org.apache.poi.openxml4j.exceptions.InvalidFormatException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Logout"/>
-    <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
-    <fullyQualifiedTypeName name="com.payroll.actiondriver.Action"/>
-    <fullyQualifiedTypeName name="com.payroll.baseclass.BaseClass"/>
-    <fullyQualifiedTypeName name="com.payroll.pageobjects.LoginPage"/>
     <fullyQualifiedTypeName name="com.payroll.utilities.ExcelLibrary"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.CellType"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
+    <fullyQualifiedTypeName name="com.payroll.actiondriver.Action"/>
+    <fullyQualifiedTypeName name="com.payroll.pageobjects.LoginPage"/>
+    <fullyQualifiedTypeName name="com.payroll.pageobjects.ResetPassword"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.AfterMethod"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.BeforeMethod"/>
+    <fullyQualifiedTypeName name="com.payroll.baseclass.BaseClass"/>
 </qualifiedTypeNameHistroy>

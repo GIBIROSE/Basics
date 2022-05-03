@@ -20,6 +20,11 @@ public class BaseClass {
 	
 	public static Properties prop;
 	public static WebDriver driver;
+	
+	
+	
+	
+	
 	//loadConfig method is to load the configuration
 	@BeforeTest
 	public void loadConfig() {
@@ -36,6 +41,8 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	public void launchApp() {
 		
 	   String browserName = prop.getProperty("browser");

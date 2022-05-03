@@ -13,8 +13,8 @@ import com.payroll.utilities.ExcelLibrary;
 
 public class Clients extends BaseClass {
 
-	WebDriver driver;
-	Action action;
+
+	public Action action;
 
 	public Clients() {
 		PageFactory.initElements(driver, this);
@@ -116,10 +116,24 @@ public class Clients extends BaseClass {
 
 	@FindBy(xpath = "//td[normalize-space()='3']")
 	WebElement searchResultByID;
+	
+	public boolean searchDisplay() {
+		//clientNameSearchBox.isDisplayed();
+		 action = new Action();
+		return action.isDisplayed(driver, clientNameSearchBox);
+	}
+		
+		
+		
+	
+	
+	
+	
+	
 
 	public boolean searchClients() {
-		clientBtn.click();
-		// action.click(driver,clientBtn);
+		//clientBtn.click();
+		//action.click(driver,clientBtn);
 		clientNameSearchBox.sendKeys("sam");
 		clientIDSearchBox.sendKeys("3");
 		// action.type(clientNameSearchBox, "sam");
