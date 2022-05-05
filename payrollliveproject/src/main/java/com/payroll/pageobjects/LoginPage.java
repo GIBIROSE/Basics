@@ -30,14 +30,59 @@ public class LoginPage extends BaseClass {
 	@FindBy(linkText = "reset it")
 	WebElement resetClick;
 	
+	@FindBy(xpath="//h1[normalize-space()='Password reset']")
+	WebElement pwdResetNextPageText;
+	
 	@FindBy(xpath="//h1[normalize-space()='Login']")
 	WebElement loginTxt;
+	
+	@FindBy(xpath="//p[normalize-space()='Username cannot be blank.']")
+	WebElement usernameErrorText;
+	
+	@FindBy(xpath="//p[normalize-space()='Password cannot be blank.']")
+	WebElement passwordErrorText;
+	
+	public String verifyURL() {
+		return driver.getCurrentUrl();
+	}
+	
+	
 	
 	public String loginText() {
 		String txtLogin=loginTxt.getText();
 		return txtLogin;
 	}
 	
+	public String invalidLoginVerify() {
+		Action action=new Action();
+		action.type(textUserName, "    ");
+		action.type(txtPassword, "    ");
+		action.click(driver, loginButton);
+		String output=usernameErrorText.getText();
+		return output;
+		
+	}
+	
+	public void invalidLoginVerifyPassword() {
+		Action action=new Action();
+		action.type(textUserName, "    ");
+		action.type(txtPassword, "    ");
+		action.click(driver, loginButton);
+		passwordErrorText.getText();
+	}
+	
+	public String verifyPasswdReset() {
+		
+		Action action=new Action();
+		action.type(textUserName, "    ");
+		action.type(txtPassword, "    ");
+		action.click(driver, loginButton);
+		action.click(driver, resetClick);
+		String output=pwdResetNextPageText.getText();
+		return output;
+		
+		
+	}
 	
 
 	public HomePage login(String uname, String pwd) {

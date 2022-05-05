@@ -4,21 +4,45 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 
 import com.payroll.actiondriver.Action;
+import com.payroll.baseclass.BaseClass;
 
-public class Logout extends LoginPage {
-	WebDriver driver;
+public class Logout extends BaseClass{
+	
 
 	public Logout() {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(xpath="//a[@href='/payrollapp/user/profile']")
+	WebElement viewProfileLink;
+	
+	@FindBy(xpath="//div[@class='alert alert-danger']")
+	WebElement  viewProfileLinkErrorMessg;
+	
 	@FindBy(xpath = "//a[@class='dropdown-toggle']")
 	WebElement logoutBtn;
 
-	public void logoutVerify() {
-		Action act = new Action();
-		act.click(driver, logoutBtn);
+	@FindBy(xpath="//a[@href='/payrollapp/site/logout']")
+	WebElement logOutLinkClick;
+	
+	
+	public void verifyLogOutFeature() {
+		
+		Action action = new Action();
+		action.click(driver, logOutLinkClick);
+		
+		
 	}
+	
+	
+	public String verifyFullProfileViewErrorFeature() {
+		Action action = new Action();
+		action.click(driver, viewProfileLink);
+		String result=viewProfileLinkErrorMessg.getText();
+		return result;
+	}
+	
 }

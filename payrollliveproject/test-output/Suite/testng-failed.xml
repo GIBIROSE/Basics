@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Grouping Example Test(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.payroll.testcases.LoginTest">
+        <methods>
+          <include name="loginTestTitle"/>
+        </methods>
+      </class> <!-- com.payroll.testcases.LoginTest -->
+    </classes>
+  </test> <!-- Grouping Example Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

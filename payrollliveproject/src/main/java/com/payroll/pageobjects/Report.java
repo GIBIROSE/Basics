@@ -5,8 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Report {
-	WebDriver driver;
+import com.payroll.actiondriver.Action;
+import com.payroll.baseclass.BaseClass;
+
+public class Report extends BaseClass {
 
 	public Report() {
 		PageFactory.initElements(driver, this);
@@ -22,9 +24,9 @@ public class Report {
 	WebElement selectTimeSheetDateRange;
 
 	@FindBy(xpath = "//div[@class='summary']")
-	WebElement summary;
+	WebElement summaryReport;
 
-	@FindBy(xpath = "//span[@class='caret']")
+	@FindBy(xpath = "//button[@id='w3']")
 	WebElement exportPageDataBtn;
 
 	@FindBy(xpath = "//a[normalize-space()='Excel']")
@@ -38,5 +40,27 @@ public class Report {
 
 	@FindBy(xpath = "(//*[name()='rect'])[9]")
 	WebElement graphPerformance;
+	
+	@FindBy(xpath="//li[normalize-space()='Perfomance']")
+	WebElement performanceGraph;
 
+	public boolean verifyReortSummary() {
+		summaryReport.isDisplayed();
+		return summaryReport.isDisplayed();
+	}
+
+	public void  exportPageDataDetails() {
+		Action action=new Action();
+		action.click(driver, exportPageDataBtn);
+		action.click(driver, exportPageDataExcel);
+		action.click(driver, exportPageDataPDF);
+		
+	}
+	
+	public void performanceGraphical() {
+		Action action=new Action();
+		action.click(driver, companyPerformanceClick);
+		performanceGraph.isDisplayed();
+	}
+	
 }

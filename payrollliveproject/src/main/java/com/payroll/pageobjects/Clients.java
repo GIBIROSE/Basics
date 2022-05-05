@@ -1,3 +1,4 @@
+
 package com.payroll.pageobjects;
 
 import java.util.ArrayList;
@@ -12,7 +13,6 @@ import com.payroll.baseclass.BaseClass;
 import com.payroll.utilities.ExcelLibrary;
 
 public class Clients extends BaseClass {
-
 
 	public Action action;
 
@@ -102,7 +102,8 @@ public class Clients extends BaseClass {
 	@FindBy(id = "client-vat_rate")
 	WebElement txtVatRate;
 
-	@FindBy(xpath = "//button[@type='submit']")
+	// @FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
 
 	@FindBy(xpath = "//th[normalize-space()='Client Name']")
@@ -116,24 +117,42 @@ public class Clients extends BaseClass {
 
 	@FindBy(xpath = "//td[normalize-space()='3']")
 	WebElement searchResultByID;
+
+	@FindBy(xpath = "//a[@href='/payrollapp/client/view?id=1']//span[@class='glyphicon glyphicon-eye-open']")
+	WebElement viewOneExistingClient;
 	
+	@FindBy(xpath = "//td[normalize-space()='Amalaxaviour']")
+	WebElement viewOneUserEnlargedView;
+	
+	@FindBy(xpath="//a[@href='/payrollapp/client/update?id=1']//span[@class='glyphicon glyphicon-pencil']")
+	WebElement editOneExistingClient;	
+	
+	
+	@FindBy(xpath="//li[normalize-space()='Update']")
+	WebElement existingUserEditWindowEnlargedView;
+	
+	
+	public boolean editExistingClient() {
+		Action action = new Action();
+		action.click(driver, editOneExistingClient);
+		return existingUserEditWindowEnlargedView.isDisplayed();
+	}
+
+	public boolean viewExistngClient() {
+		Action action = new Action();
+		action.click(driver, viewOneExistingClient);
+		 return viewOneUserEnlargedView.isDisplayed();
+	}
+
 	public boolean searchDisplay() {
-		//clientNameSearchBox.isDisplayed();
-		 action = new Action();
+		// clientNameSearchBox.isDisplayed();
+		action = new Action();
 		return action.isDisplayed(driver, clientNameSearchBox);
 	}
-		
-		
-		
-	
-	
-	
-	
-	
 
 	public boolean searchClients() {
-		//clientBtn.click();
-		//action.click(driver,clientBtn);
+		// clientBtn.click();
+		// action.click(driver,clientBtn);
 		clientNameSearchBox.sendKeys("sam");
 		clientIDSearchBox.sendKeys("3");
 		// action.type(clientNameSearchBox, "sam");
@@ -145,25 +164,28 @@ public class Clients extends BaseClass {
 
 	public boolean searchClientByID() {
 		action.type(clientIDSearchBox, "3");
-		boolean result = searchResultByName.isDisplayed();
+		boolean result = searchResultByID.isDisplayed();
 		return result;
 	}
 
 	public void resetEnbledVerify() {
 		action.type(clientIDSearchBox, "3");
 		action.click(driver, resetBtn);
+		action.type(clientIDSearchBox, "4");
 	}
 
-	public String mainStep() throws Exception {
-		//ExcelLibrary lib = new ExcelLibrary();
+	public void createClientStep() throws Exception {
+		// ExcelLibrary lib = new ExcelLibrary();
+
+		Action action = new Action();
 		action.click(driver, createClient);
 		action.click(driver, txtBranch);
-        // ArrayList excelData=lib.getData("clients");
-         
-         //what to do next
-		action.selectBySendkeys("Alpha_new", txtBranch);
+		// ArrayList excelData=lib.getData("clients");
 
-		action.click(driver, txtDivision);
+		// what to do next
+		action.selectBySendkeys("Alpha_new", txtBranch);
+		action.selectByIndex(txtDivision, 1);
+		// action.click(driver, txtDivision);
 		action.selectByVisibleText("NewAlpha", txtBranch);
 		action.type(txtCreateClient, "Danil Medvedev");
 
@@ -176,13 +198,19 @@ public class Clients extends BaseClass {
 
 		action.type(txtCompanyReg, "Jeromian");
 		action.selectByIndex(txtMasterDocument, 2);
+		action.selectByIndex(txtInvoiceOrder, 2);
+		action.selectByIndex(txtInvoiceDeliveryMethod, 2);
 
 		action.type(txtSettlementDays, "12");
 
 		action.selectByIndex(txtVatRate, 3);
+		action.explicitWait(driver, saveButton, 10);
+		// saveButton.click();
+
 		action.click(driver, saveButton);
-		String actual = savedClientDetails.getText();
-		return actual;
+		// Thread.sleep(2000);
+		// String actual = savedClientDetails.getText();
+		// return actual;
 
 	}
 

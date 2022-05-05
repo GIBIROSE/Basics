@@ -11,6 +11,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.payroll.actiondriver.Action;
+import com.payroll.baseclass.BaseClass;
 
 public class ListenerClass extends ExtentManager implements ITestListener {
 
@@ -28,19 +29,18 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		// if (result.getStatus() == ITestResult.FAILURE) {
-		/*
-		 * try { test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() +
-		 * " - Test Case Failed", ExtentColor.RED)); test.log(Status.FAIL,
-		 * MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed",
-		 * ExtentColor.RED)); //String imgPath =
-		 * action.screenShot(baseclass.getDriver(), result.getName());
-		 * 
-		 * // test.fail("ScreenShot is Attached",
-		 * MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
-		 * 
-		 * // } catch (IOException e) { // TODO Auto-generated catch block
-		 * //e.printStackTrace(); // } }
-		 */
+
+		try {
+			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
+			test.log(Status.FAIL,
+					MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
+			String imgPath = action.screenShot(BaseClass.driver, result.getName());
+
+			test.fail("ScreenShot is Attached", MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestSkipped(ITestResult result) {

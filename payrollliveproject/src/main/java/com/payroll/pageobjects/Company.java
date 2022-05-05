@@ -18,18 +18,22 @@ public class Company extends LoginPage {
 	@FindBy(xpath="//div[@class='site-error']/h1")
 	WebElement errorMesg;
 	
+	@FindBy(xpath="//div[@class='col-sm-6 page-title']//h1[contains(text(),'Forbidden (#403)')]")
+	WebElement errorForbiddenErrorMesg;
 	
-	public String companyBtnClick() {
-		companyButton.click();
-		String error=errorMesg.getText();
-		return error ;
+	@FindBy(xpath="//div[@class='alert alert-danger']")
+	WebElement alertMesg;
+	
+	
+	public String verifyCompanyDetails() {
+		String output=errorForbiddenErrorMesg.getText();
+		return output;
 	}
 	
 	
-	
-	public String errorType() {
-		String error=errorMesg.getText();
-		return error ;
+	public boolean limitAccessToCompanyTabDetails() {
+		boolean output=alertMesg.isDisplayed();
+		return output;
 	}
 
 }

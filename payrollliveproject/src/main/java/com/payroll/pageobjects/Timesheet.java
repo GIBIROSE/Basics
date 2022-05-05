@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Timesheet {
-	WebDriver driver;
+import com.payroll.actiondriver.Action;
+import com.payroll.baseclass.BaseClass;
+
+public class Timesheet  extends BaseClass{
+	
 
 	public Timesheet() {
 		PageFactory.initElements(driver, this);
@@ -89,5 +92,43 @@ public class Timesheet {
 
 	@FindBy(xpath = "//th[normalize-space()='Timesheet Number']")
 	WebElement createdTimeSheetShowBtn;
+	
+	@FindBy(xpath="(//td[contains(text(),'Pending')])[1]")
+	WebElement approvalStatusOneTimeSheet;
+	
+	public String verifyApproveTimeSheets() {
+		Action action=new Action();
+		action.click(driver, approveTimeSheet);
+		String output=approvalStatusOneTimeSheet.getText();
+		return output;
+	}
+	
+	
+	
+	public void verifyGeneratePaySlip() {
+		
+		Action action=new Action();
+		action.click(driver, generatePaySlip);
+		driver.switchTo().alert().accept();
+		driver.switchTo().defaultContent();
+		driver.switchTo().alert().accept();
+		driver.switchTo().defaultContent();
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

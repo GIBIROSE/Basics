@@ -1,16 +1,19 @@
 package com.payroll.pageobjects;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.payroll.actiondriver.Action;
+import com.payroll.baseclass.BaseClass;
+import com.payroll.utilities.ExcelLibrary;
 
-public class Workers {
+public class Workers extends BaseClass {
 
-	WebDriver driver;
-	Action action=new Action();
+	Action action = new Action();
 
 	public Workers() {
 		PageFactory.initElements(driver, this);
@@ -54,107 +57,162 @@ public class Workers {
 
 	@FindBy(id = "worker-email")
 	WebElement createWorkerEmail;
-	
-	@FindBy(id="worker-gender")
+
+	@FindBy(id = "worker-gender")
 	WebElement createWorkerGender;
-	
-	
-	@FindBy(id="//input[@id='worker-dob']")
+
+	@FindBy(xpath = "//input[@id='worker-dob']")
 	WebElement createWorkerDOB;
-	
-	
-	@FindBy(id="worker-address1")
+
+	@FindBy(id = "worker-address1")
 	WebElement createWorkerAddress1;
-	
-	
-	@FindBy(id="worker-postcode")
+
+	@FindBy(id = "worker-postcode")
 	WebElement createWorkerPostCode;
-	
-	
-	@FindBy(xpath="//select[@id='worker-branch_id']")
+
+	@FindBy(xpath = "//select[@id='worker-branch_id']")
 	WebElement createWorkerSelectBranch;
-	
-	
-	@FindBy(xpath="//select[@id='worker-division_id']")
+
+	@FindBy(xpath = "//select[@id='worker-division_id']")
 	WebElement createWorkerSelectDivision;
-	
-	
-	@FindBy(xpath="//select[@id='worker-employment_type']")
+
+	@FindBy(xpath = "//select[@id='worker-employment_type']")
 	WebElement createWorkerSelectEmployementType;
-	
-	
-	@FindBy(id="worker-payslip_method")
+
+	@FindBy(id = "worker-payslip_method")
 	WebElement createWorkerPaySlipMethod;
-	
-	@FindBy(xpath="//select[@id='worker-engage_status']")
+
+	@FindBy(xpath = "//select[@id='worker-engage_status']")
 	WebElement createWorkerEngageStatus;
-	
-	@FindBy(xpath="//input[@id='worker-ni_number']")
+
+	@FindBy(xpath = "//input[@id='worker-ni_number']")
 	WebElement createWorkerNiNumber;
 	
-	
-	@FindBy(xpath="//select[@id='worker-payment_method']")
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement createWorkerNext;
+
+	@FindBy(xpath = "//select[@id='worker-payment_method']")
 	WebElement workerBankDetailsPaymentMethod;
-	
-	@FindBy(xpath="//input[@id='worker-ac_name']")
+
+	@FindBy(xpath = "//input[@id='worker-ac_name']")
 	WebElement workerBankDetailAccountName;
-	
-	@FindBy(xpath="//input[@id='worker-ac_no']")
+
+	@FindBy(xpath = "//input[@id='worker-ac_no']")
 	WebElement workerBankDetailAccountNumber;
-	
-	@FindBy(id="worker-sort_code")
+
+	@FindBy(id = "worker-sort_code")
 	WebElement workerBankDetailSortCode;
-	
-	@FindBy(id="worker-start_date")
+
+	@FindBy(id = "worker-start_date")
 	WebElement workerBankDetailStartDate;
-	
-	
-	@FindBy(xpath="//button[@type='submit']")
+
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElement workerBankDetailSave;
+
+	@FindBy(xpath = "//td[normalize-space()='1']")
+	WebElement workersSearchResults;
+
+	@FindBy(xpath = "//a[@href='/payrollapp/worker/create']")
+	WebElement createWorkerSideTab;
+
+	@FindBy(xpath = "//div[@class='col-lg-10 col-sm-8']//h1[contains(text(),'Create Worker')]")
+	WebElement createWorkerDisplayTabTop;
 	
-	@FindBy(xpath="//td[normalize-space()='1']")
-	WebElement  workersSearchResults;
 	
-	public boolean searchFirstName() {
-		Action action=new Action();
-		action.click(driver, searchFirstName);
-		action.click(driver, searchBox);
-		boolean result=workersSearchResults.isDisplayed();
+	
+	@FindBy(xpath="//div[@class='col-sm-6 breadcrumb-navigation']")
+	WebElement createdWorkerDisplayDetails;
+
+	public boolean enterCreateNewWorker() throws Exception {
+		Action action = new Action();
+		action.click(driver, createWorkerSideTab);
+		
+		ExcelLibrary lib = new ExcelLibrary();
+		ArrayList excel=lib.getData("clientdetails");
+		
+		
+		action.type(createWorkerDOB, "12-10-2000");
+		action.selectByIndex(createWorkerTitle, 1);
+		action.selectByIndex(createWorkerGender, 1);
+		action.selectByIndex(createWorkerSelectBranch, 1);
+		action.selectByIndex(createWorkerSelectDivision, 1);
+		action.selectByIndex(createWorkerSelectEmployementType, 1);
+		action.selectByIndex(createWorkerSelectDivision, 1);
+		action.selectByIndex(createWorkerPaySlipMethod, 1);
+		action.type(createWorkerFirstName, (String) excel.get(0));
+		action.type(createWorkerLastName, "Ram");
+		action.type(createWorkerEmail, "raviram@gmail.com");
+		action.type(createWorkerAddress1, "Bluemount Residency");
+		action.type(createWorkerPhone, "6756676767");
+		
+		action.type(createWorkerNiNumber, "34");
+		action.type(createWorkerPostCode, "909090");
+		action.click(driver, createWorkerNext);
+		
+		
+		action.selectByIndex(workerBankDetailsPaymentMethod, 1);
+		action.type(workerBankDetailAccountNumber, "12390");
+		action.type(workerBankDetailAccountName, "glop");
+		action.type(workerBankDetailSortCode, "22");
+		action.type(workerBankDetailStartDate, "10-2-2020");
+		action.click(driver, workerBankDetailSave);
+		
+		boolean result = createdWorkerDisplayDetails.isDisplayed();
+		return result;
+
+	}
+
+	public boolean searchDisplayWorkers() {
+		Action action = new Action();
+		return action.isDisplayed(driver, searchFirstName);
+
+	}
+
+	public boolean createWorkerVerify() {
+		Action action = new Action();
+		action.click(driver, createWorkerSideTab);
+		boolean result = createWorkerDisplayTabTop.isDisplayed();
 		return result;
 	}
-	
+
+	public boolean searchFirstName() {
+		Action action = new Action();
+		action.click(driver, searchFirstName);
+		action.type(searchFirstName, "sam");
+		action.click(driver, searchBox);
+		boolean result = workersSearchResults.isDisplayed();
+		return result;
+	}
+
 	public boolean searchLastName() {
-		Action action=new Action();
+		Action action = new Action();
 		action.click(driver, searchLastName);
 		action.click(driver, searchBox);
-		boolean result=workersSearchResults.isDisplayed();
+		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
-	
-	
+
 	public boolean searchNiNumber() {
-		Action action=new Action();
+		Action action = new Action();
 		action.click(driver, searchNiNumber);
 		action.click(driver, searchBox);
-		boolean result=workersSearchResults.isDisplayed();
+		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
-	
+
 	public boolean searchPostCode() {
-		Action action=new Action();
+		Action action = new Action();
 		action.click(driver, searchPostCode);
 		action.click(driver, searchBox);
-		boolean result=workersSearchResults.isDisplayed();
+		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
-	
+
 	public boolean verifyResetBtn() {
 		action.click(driver, resetBox);
-		boolean output=resetBox.isEnabled();
+		boolean output = resetBox.isEnabled();
 		return output;
-		
-		
+
 	}
-	
 
 }
