@@ -56,8 +56,8 @@
     <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Timesheet"/>
     <fullyQualifiedTypeName name="com.payroll.pageobjects.Payslip"/>
-    <fullyQualifiedTypeName name="com.payroll.actiondriver.Action"/>
     <fullyQualifiedTypeName name="org.testng.annotations.BeforeMethod"/>
     <fullyQualifiedTypeName name="com.payroll.pageobjects.LoginPage"/>
     <fullyQualifiedTypeName name="com.payroll.baseclass.BaseClass"/>
+    <fullyQualifiedTypeName name="com.payroll.actiondriver.Action"/>
 </qualifiedTypeNameHistroy>

@@ -1,7 +1,6 @@
 
 package com.payroll.pageobjects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,6 +51,15 @@ public class LoginPage extends BaseClass {
 		String txtLogin=loginTxt.getText();
 		return txtLogin;
 	}
+	
+	public void invalidLogin(String un,String pwd) {
+		textUserName.sendKeys(un);
+		txtPassword.sendKeys(pwd);
+		loginButton.click();
+	}
+	
+	
+	
 	
 	public String invalidLoginVerify() {
 		Action action=new Action();

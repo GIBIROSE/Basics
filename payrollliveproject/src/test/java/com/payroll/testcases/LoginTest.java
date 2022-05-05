@@ -33,8 +33,7 @@ public class LoginTest extends BaseClass {
 
 	}
 
-	@Test
-	//(dataProvider = "userData", priority = 2, groups = { "smoke" })
+	@Test( priority = 2, groups = { "smoke" })
 	public void loginTestTitle() throws InterruptedException {
 		 Log.startTestCase("LOGIN TO PAYROLL APPLICATION");
 		
@@ -48,8 +47,21 @@ public class LoginTest extends BaseClass {
 		}
 
 	}
+	
+	@Test(dataProvider = "userData",priority = 3)
+	public void validateInvalidLogin1(String u, String p) {
+		LoginPage loginpg = new LoginPage();
+		 loginpg.invalidLogin(u, p);
+		 String actual=driver.getTitle();
+		 String expected="LOGIN";
+		 Assert.assertEquals(actual, expected);
+		 
+		 
+		
+	}
 
-/*	@DataProvider(name = "userData")
+
+	@DataProvider(name = "userData")
 	public Object[][] loginDemo() {
 		Object[][] data = new Object[2][2];
 		data[0][0] = "admin";
@@ -59,9 +71,9 @@ public class LoginTest extends BaseClass {
 
 		return data;
 
-	}*/
+	}
 
-	@Test(priority = 3)
+	@Test(priority = 4)
 	public void validateInvalidLogin() {
 		LoginPage loginpg = new LoginPage();
 		String actual = loginpg.invalidLoginVerify();
@@ -70,7 +82,7 @@ public class LoginTest extends BaseClass {
 
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 5)
 	public void validateReset() {
 
 		LoginPage loginpg = new LoginPage();

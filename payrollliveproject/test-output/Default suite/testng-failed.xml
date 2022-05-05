@@ -7,8 +7,8 @@
         <methods>
           <include name="aftersuite"/>
           <include name="loadConfig"/>
+          <include name="validateInvalidLogin1" invocation-numbers="0 1"/>
           <include name="beforeSuiteLog"/>
-          <include name="loginTestTitle"/>
           <include name="closeBrowser"/>
           <include name="launching"/>
         </methods>

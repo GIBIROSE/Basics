@@ -128,7 +128,7 @@ public class Workers extends BaseClass {
 		action.click(driver, createWorkerSideTab);
 		
 		ExcelLibrary lib = new ExcelLibrary();
-		ArrayList excel=lib.getData("clientdetails");
+		ArrayList excel=lib.getData("workerdetails");
 		
 		
 		action.type(createWorkerDOB, "12-10-2000");
@@ -140,21 +140,21 @@ public class Workers extends BaseClass {
 		action.selectByIndex(createWorkerSelectDivision, 1);
 		action.selectByIndex(createWorkerPaySlipMethod, 1);
 		action.type(createWorkerFirstName, (String) excel.get(0));
-		action.type(createWorkerLastName, "Ram");
-		action.type(createWorkerEmail, "raviram@gmail.com");
-		action.type(createWorkerAddress1, "Bluemount Residency");
-		action.type(createWorkerPhone, "6756676767");
+		action.type(createWorkerLastName, (String) excel.get(1));
+		action.type(createWorkerEmail, (String) excel.get(2));
+		action.type(createWorkerAddress1, (String) excel.get(3));
+		action.type(createWorkerPhone, (String) excel.get(4));
 		
-		action.type(createWorkerNiNumber, "34");
-		action.type(createWorkerPostCode, "909090");
+		action.type(createWorkerNiNumber, (String) excel.get(5));
+		action.type(createWorkerPostCode, (String) excel.get(6));
 		action.click(driver, createWorkerNext);
 		
 		
 		action.selectByIndex(workerBankDetailsPaymentMethod, 1);
-		action.type(workerBankDetailAccountNumber, "12390");
-		action.type(workerBankDetailAccountName, "glop");
-		action.type(workerBankDetailSortCode, "22");
-		action.type(workerBankDetailStartDate, "10-2-2020");
+		action.type(workerBankDetailAccountNumber, (String) excel.get(7));
+		action.type(workerBankDetailAccountName, (String) excel.get(8));
+		action.type(workerBankDetailSortCode, (String) excel.get(9));
+		action.type(workerBankDetailStartDate, (String) excel.get(10));
 		action.click(driver, workerBankDetailSave);
 		
 		boolean result = createdWorkerDisplayDetails.isDisplayed();

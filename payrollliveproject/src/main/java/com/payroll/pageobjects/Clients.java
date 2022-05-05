@@ -175,39 +175,41 @@ public class Clients extends BaseClass {
 	}
 
 	public void createClientStep() throws Exception {
-		// ExcelLibrary lib = new ExcelLibrary();
+		 ExcelLibrary lib = new ExcelLibrary();
 
 		Action action = new Action();
 		action.click(driver, createClient);
 		action.click(driver, txtBranch);
-		// ArrayList excelData=lib.getData("clients");
+		ArrayList excel=lib.getData("clients");
 
 		// what to do next
 		action.selectBySendkeys("Alpha_new", txtBranch);
 		action.selectByIndex(txtDivision, 1);
 		// action.click(driver, txtDivision);
 		action.selectByVisibleText("NewAlpha", txtBranch);
-		action.type(txtCreateClient, "Danil Medvedev");
+		action.type(txtCreateClient, (String) excel.get(0));
 
-		action.type(txtAddress, "WhiteMountStreet, Chelsea");
-		action.type(txtPostcode, "98765");
-		action.type(txtInvoiceContact, "Andrey");
+		action.type(txtAddress, (String) excel.get(1));
+		action.type(txtPostcode, (String) excel.get(2));
+		action.type(txtInvoiceContact, (String) excel.get(3));
 
-		action.type(txtPhone, "7867568");
-		action.type(txtEmail, "danil@gmail.com");
+		action.type(txtPhone, (String) excel.get(4));
+		action.type(txtEmail, (String) excel.get(5));
 
-		action.type(txtCompanyReg, "Jeromian");
+		action.type(txtCompanyReg, (String) excel.get(6));
 		action.selectByIndex(txtMasterDocument, 2);
 		action.selectByIndex(txtInvoiceOrder, 2);
 		action.selectByIndex(txtInvoiceDeliveryMethod, 2);
 
-		action.type(txtSettlementDays, "12");
+		action.type(txtSettlementDays, (String) excel.get(7));
 
 		action.selectByIndex(txtVatRate, 3);
 		action.explicitWait(driver, saveButton, 10);
 		// saveButton.click();
 
-		action.click(driver, saveButton);
+		
+		action.JSClick(driver, saveButton);
+		//action.click(driver, saveButton);
 		// Thread.sleep(2000);
 		// String actual = savedClientDetails.getText();
 		// return actual;
