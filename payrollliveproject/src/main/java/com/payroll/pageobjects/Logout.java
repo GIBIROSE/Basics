@@ -9,40 +9,37 @@ import org.testng.annotations.Test;
 import com.payroll.actiondriver.Action;
 import com.payroll.baseclass.BaseClass;
 
-public class Logout extends BaseClass{
-	
+public class Logout extends BaseClass {
 
 	public Logout() {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath="//a[@href='/payrollapp/user/profile']")
+	@FindBy(xpath = "//a[@href='/payrollapp/user/profile']")
 	WebElement viewProfileLink;
-	
-	@FindBy(xpath="//div[@class='alert alert-danger']")
-	WebElement  viewProfileLinkErrorMessg;
-	
+
+	@FindBy(xpath = "//div[@class='alert alert-danger']")
+	WebElement viewProfileLinkErrorMessg;
+
 	@FindBy(xpath = "//a[@class='dropdown-toggle']")
 	WebElement logoutBtn;
 
-	@FindBy(xpath="//a[@href='/payrollapp/site/logout']")
+	@FindBy(xpath = "//a[@href='/payrollapp/site/logout']")
 	WebElement logOutLinkClick;
-	
-	
-	public void verifyLogOutFeature() {
-		
+
+	public String verifyLogOutFeature() {
+
 		Action action = new Action();
 		action.click(driver, logOutLinkClick);
-		
-		
+		return driver.getCurrentUrl();
+
 	}
-	
-	
+
 	public String verifyFullProfileViewErrorFeature() {
 		Action action = new Action();
 		action.click(driver, viewProfileLink);
-		String result=viewProfileLinkErrorMessg.getText();
+		String result = viewProfileLinkErrorMessg.getText();
 		return result;
 	}
-	
+
 }

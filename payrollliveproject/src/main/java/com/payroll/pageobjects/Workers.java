@@ -143,13 +143,10 @@ public class Workers extends BaseClass {
 		action.type(createWorkerLastName, (String) excel.get(1));
 		action.type(createWorkerEmail, (String) excel.get(2));
 		action.type(createWorkerAddress1, (String) excel.get(3));
-		action.type(createWorkerPhone, (String) excel.get(4));
-		
+		action.type(createWorkerPhone, (String) excel.get(4));		
 		action.type(createWorkerNiNumber, (String) excel.get(5));
 		action.type(createWorkerPostCode, (String) excel.get(6));
-		action.click(driver, createWorkerNext);
-		
-		
+		action.click(driver, createWorkerNext);		
 		action.selectByIndex(workerBankDetailsPaymentMethod, 1);
 		action.type(workerBankDetailAccountNumber, (String) excel.get(7));
 		action.type(workerBankDetailAccountName, (String) excel.get(8));

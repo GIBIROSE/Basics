@@ -6,16 +6,16 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.payroll.testcases.LoginTest">
+      <class name="com.payroll.testcases.DeductionTest">
         <methods>
           <include name="aftersuite"/>
           <include name="loadConfig"/>
-          <include name="validateInvalidLogin1" invocation-numbers="0 1"/>
-          <include name="beforeSuiteLog"/>
+          <include name="launching1"/>
           <include name="closeBrowser"/>
-          <include name="launching"/>
+          <include name="beforeSuiteLog"/>
+          <include name="verifyAddDeductionPage"/>
         </methods>
-      </class> <!-- com.payroll.testcases.LoginTest -->
+      </class> <!-- com.payroll.testcases.DeductionTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

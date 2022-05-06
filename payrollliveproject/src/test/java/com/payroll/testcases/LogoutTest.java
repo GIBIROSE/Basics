@@ -13,14 +13,12 @@ import com.payroll.pageobjects.Logout;
 
 public class LogoutTest extends BaseClass {
 
-	Logout logout = new Logout();
-
-	@BeforeMethod
+	@BeforeMethod(groups = {"smoke" })
 	public void launching1() {
 		launchApp();
 	}
 
-	@Test(priority=27,groups= {"sanity","smoke"})
+	@Test(priority = 27, groups = {"smoke" })
 	public void logoutVerify() {
 
 		LoginPage pg = new LoginPage();
@@ -28,11 +26,13 @@ public class LogoutTest extends BaseClass {
 		HomePage home = new HomePage();
 		home.validateLogOut();
 		Logout out = new Logout();
-		out.verifyLogOutFeature();
+		String actual = out.verifyLogOutFeature();
+		String expected = "https://www.qabible.in/payrollapp/site/login";
+		Assert.assertEquals(actual, expected);
 
 	}
 
-	@Test(priority=28)
+	@Test(priority = 28)
 	public void logoutFullProfileLinkVerify() {
 
 		LoginPage pg = new LoginPage();
@@ -46,7 +46,7 @@ public class LogoutTest extends BaseClass {
 		Assert.assertEquals(actual, expected);
 
 	}
-	
+
 	@AfterMethod
 	public void closeBrowser() {
 		driver.close();

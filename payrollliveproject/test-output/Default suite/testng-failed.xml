@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.payroll.testcases.LoginTest">
+      <class name="com.payroll.testcases.DeductionTest">
         <methods>
           <include name="aftersuite"/>
           <include name="loadConfig"/>
-          <include name="validateInvalidLogin1" invocation-numbers="0 1"/>
+          <include name="launching1"/>
           <include name="beforeSuiteLog"/>
-          <include name="closeBrowser"/>
-          <include name="launching"/>
+          <include name="verifyAddDeductionPage"/>
         </methods>
-      </class> <!-- com.payroll.testcases.LoginTest -->
+      </class> <!-- com.payroll.testcases.DeductionTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

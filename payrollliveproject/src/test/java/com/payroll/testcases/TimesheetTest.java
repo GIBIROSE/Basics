@@ -35,7 +35,7 @@ public class TimesheetTest extends BaseClass {
 	@Test(priority = 23)
 	public void generatePaySlipValidate() {
 		
-		Log.startTestCase("LOGIN TO PAYROLL APPLICATION tc1");
+		Log.startTestCase(" PAYROLL APPLICATION Payslip generation");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();

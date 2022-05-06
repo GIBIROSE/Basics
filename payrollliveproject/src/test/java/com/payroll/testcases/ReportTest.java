@@ -21,9 +21,21 @@ public class ReportTest extends BaseClass {
 		launchApp();
 	}
 
-	@Test(priority=24,groups= {"sanity"})
+	@Test
+	public void validateDeductionHistorySelectWorker() throws Exception {
+		Log.startTestCase("PAYROLL APPLICATION");
+		LoginPage pg = new LoginPage();
+		pg.login(prop.getProperty("username"), prop.getProperty("password"));
+		HomePage home = new HomePage();
+		home.validateReportClick();
+		Report report = new Report();
+		report.deductionSelectWorker();
+
+	}
+
+	@Test(priority = 24, groups = { "sanity" })
 	public void verifyClientSearch() throws InterruptedException {
-		Log.startTestCase("LOGIN TO PAYROLL APPLICATION tc1");
+		Log.startTestCase("PAYROLL APPLICATION");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
@@ -33,9 +45,8 @@ public class ReportTest extends BaseClass {
 		Assert.assertTrue(result);
 
 	}
-	
-	
-	@Test(priority=25)
+
+	@Test(priority = 25)
 	public void verifyExportPageDetails() {
 		Log.startTestCase("LOGIN TO PAYROLL APPLICATION tc2");
 		LoginPage pg = new LoginPage();
@@ -44,9 +55,10 @@ public class ReportTest extends BaseClass {
 		home.validateReportClick();
 		Report report = new Report();
 		report.exportPageDataDetails();
-		
+
 	}
-	@Test(priority=26,groups= {"smoke"})
+
+	@Test(priority = 26, groups = { "smoke" })
 	public void verifyGraphicalData() {
 		Log.startTestCase("LOGIN TO PAYROLL APPLICATION tc3");
 		LoginPage pg = new LoginPage();
@@ -55,13 +67,12 @@ public class ReportTest extends BaseClass {
 		home.validateReportClick();
 		Report report = new Report();
 		report.performanceGraphical();
-		
+
 	}
-	
+
 	@AfterMethod
 	public void closeBrowser() {
 		driver.close();
 	}
-	
-	
+
 }

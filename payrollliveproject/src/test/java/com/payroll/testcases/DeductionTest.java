@@ -24,8 +24,7 @@ public class DeductionTest  extends BaseClass{
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
 		home.verifyDeductionClick();
-        Deduction ded=new Deduction();
-		
+        Deduction ded=new Deduction();		
 		boolean result = ded.deductionVerifyViewAllWorkers();
 		Assert.assertTrue(result);
 	}
@@ -38,23 +37,19 @@ public class DeductionTest  extends BaseClass{
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
 		home.verifyDeductionClick();
-        Deduction ded=new Deduction();
-        //Thread.sleep(2000);
-		
+        Deduction ded=new Deduction();		
 		boolean result = ded.existingWorkerView();
 		Assert.assertTrue(result);}
 		
 	
 	@Test(priority=21,groups= {"sanity"})
-	public void verifyAddDeductionPage() throws InterruptedException {
+	public void verifyAddDeductionPage() throws Exception {
 		
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
 		home.verifyDeductionClick();
-        Deduction ded=new Deduction();
-        Thread.sleep(2000);
-		
+        Deduction ded=new Deduction();		
 		boolean result=ded.addDeduction();
 		Assert.assertTrue(result);
 		
@@ -63,8 +58,8 @@ public class DeductionTest  extends BaseClass{
 	
 	@AfterMethod
 	public void closeBrowser() {
-		driver.close();
-	}
+		driver.close();}
+	
 	
 	
 	

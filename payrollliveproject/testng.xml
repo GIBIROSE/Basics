@@ -12,20 +12,13 @@
 
 
 <classes>
-<class name="com.payroll.testcases.LoginTest"/>
-<class name="com.payroll.testcases.HomePageTest"/>
-<class name="com.payroll.testcases.CompanyTest"/>
-<class name="com.payroll.testcases.ClientTest"/>
-<class name="com.payroll.testcases.PayslipTest"/>
-<class name="com.payroll.testcases.WorkersTest"/>
-<class name="com.payroll.testcases.DeductionTest"/>
-<class name="com.payroll.testcases.TimesheetTest"/>
+
 <class name="com.payroll.testcases.ReportTest"/>
-<class name="com.payroll.testcases.LogoutTest">
 
 
 
-</class>
+
+
 
 
 </classes>

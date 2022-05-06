@@ -8,12 +8,15 @@ import java.util.Properties;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.payroll.actiondriver.Action;
 import com.payroll.utilities.ExtentManager;
@@ -51,7 +54,8 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-
+	 //@Parameters("browser")
+	// @ BeforeClass(alwaysRun=true)
 	public void launchApp() {
 
 		String browserName = prop.getProperty("browser");
@@ -61,9 +65,11 @@ public class BaseClass {
 		} else if (browserName.equalsIgnoreCase("FireFox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-		} else if (browserName.equalsIgnoreCase("IE")) {
-			WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();
+		} else if (browserName.equalsIgnoreCase("edge")) {
+			//WebDriverManager.iedriver().setup();
+			WebDriverManager.edgedriver().setup();
+			 driver = new EdgeDriver();
+			//driver = new InternetExplorerDriver();
 		}
 		// Maximize the screen
 		driver.manage().window().maximize();

@@ -35,10 +35,14 @@ public class Payslip extends BaseClass {
 	@FindBy(xpath="//a[@href='/payrollapp/payslip/index?page=10&per-page=40']")
 	WebElement pagination10;
 	
-	public void verifyPagination() {
+	public void verifyPagination() throws Exception {
 		Action action=new Action();
-		action.click(driver, pagination6);
-		action.click(driver, pagination10);
+		
+		action.JSClick(driver, pagination6);
+		action.JSClick(driver, pagination10);
+		
+		//action.click(driver, pagination6);
+		//action.click(driver, pagination10);
 	}
 	
 	
@@ -49,17 +53,29 @@ public class Payslip extends BaseClass {
 
 	}
 	
-	public void verifyDownloadPaySlipWorker() throws AWTException {
+	public void verifyDownloadPaySlipWorker() throws AWTException, InterruptedException {
 		downloadOneWorkerPayslip.click();
-		Robot robot = new Robot();
+		Robot rb = new Robot();
 
-		robot.keyPress(KeyEvent.VK_CONTROL);
+		/*robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_S);
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.keyRelease(KeyEvent.VK_S);
 		Action action=new Action();
+
+		
+		Thread.sleep(2000);
 		action.explicitWait(driver, downloadOneWorkerPayslip, 10);
 		robot.keyPress(KeyEvent.VK_ENTER);
+		
+		robot.keyPress(KeyEvent.VK_ENTER);*/
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_S);
+		//rb.keyRelease(KeyEvent.VK_CONTROL);
+		//rb.keyRelease(KeyEvent.VK_S);
+		Thread.sleep(3000);
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
 	}
 
 }

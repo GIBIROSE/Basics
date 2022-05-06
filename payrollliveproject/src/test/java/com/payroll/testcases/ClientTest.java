@@ -21,105 +21,95 @@ public class ClientTest extends BaseClass {
 		launchApp();
 	}
 
-	@Test(priority = 8,groups= {"smoke"})
+	@Test(priority = 8, groups = { "smoke" })
 	public void verifyClientSearch() throws InterruptedException {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
+		Clients client = new Clients();
 		boolean result = client.searchDisplay();
 		Assert.assertTrue(result);
 
 	}
 
 	@Test(priority = 9)
-	public void verifySearchByName() {
+	public void verifySearchByName() throws Exception {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
+		Clients client = new Clients();
 		boolean result = client.searchClients();
 		Assert.assertTrue(result);
 
 	}
 
 	@Test(priority = 10)
-	public void verifySearchByID() {
+	public void verifySearchByID() throws Exception {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
+		Clients client = new Clients();
 		boolean result = client.searchClientByID();
 		Assert.assertTrue(result);
 
 	}
 
 	@Test(priority = 11)
-	public void verifyResetBtn() {
+	public void verifyResetBtn() throws Exception {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
+		Clients client = new Clients();
 		client.resetEnbledVerify();
-	} 
-	@Test(priority = 12,groups= {"sanity"})
+	}
+
+	@Test(priority = 12, groups = { "sanity" })
 	public void verifyCreateClient() throws Exception {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
+		Clients client = new Clients();
 		client.createClientStep();
-		//String expected="hi hello";
-		//Assert.assertEquals(actual,expected);
+		boolean actual = client.createClientStep();
+		boolean expected = true;
+		Assert.assertEquals(actual, expected);
+
 	}
-	
+
 	@Test(priority = 13)
 	public void viewExistingUserVerify() {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
-		boolean expected=client.viewExistngClient();
-		boolean actual=true;
-		Assert.assertEquals(actual,expected);
-		
+		Clients client = new Clients();
+		boolean expected = client.viewExistngClient();
+		boolean actual = true;
+		Assert.assertEquals(actual, expected);
+
 	}
-	
-	
+
 	@Test(priority = 14)
 	public void verifyEditExistingClient() {
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		home = new HomePage();
+		HomePage home = new HomePage();
 		home.verifyClickClient();
-		// Thread.sleep(6000);
-		client = new Clients();
-		boolean expected=client.editExistingClient();
-		boolean actual=true;
-		Assert.assertEquals(actual,expected);
-		
-		
+		Clients client = new Clients();
+		boolean expected = client.editExistingClient();
+		boolean actual = true;
+		Assert.assertEquals(actual, expected);
+
 	}
+
 	@AfterMethod
 	public void closeBrowser() {
 		driver.close();
 	}
-	
-	
-	
-	
-	
 
 }

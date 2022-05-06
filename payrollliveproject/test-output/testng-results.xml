@@ -1,36 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-05T10:32:37 IST" name="Default suite" finished-at="2022-05-05T10:33:36 IST" duration-ms="59563">
+  <suite started-at="2022-05-06T05:13:32 IST" name="Suite" finished-at="2022-05-06T05:16:33 IST" duration-ms="180401">
     <groups>
+      <group name="smoke">
+        <method signature="ReportTest.verifyGraphicalData()[pri:26, instance:com.payroll.testcases.ReportTest@3527942a]" name="verifyGraphicalData" class="com.payroll.testcases.ReportTest"/>
+      </group> <!-- smoke -->
       <group name="sanity">
-        <method signature="ClientTest.verifyCreateClient()[pri:12, instance:com.payroll.testcases.ClientTest@29215f06]" name="verifyCreateClient" class="com.payroll.testcases.ClientTest"/>
+        <method signature="ReportTest.verifyClientSearch()[pri:24, instance:com.payroll.testcases.ReportTest@3527942a]" name="verifyClientSearch" class="com.payroll.testcases.ReportTest"/>
       </group> <!-- sanity -->
     </groups>
-    <test started-at="2022-05-05T10:32:37 IST" name="Default test" finished-at="2022-05-05T10:33:36 IST" duration-ms="59563">
-      <class name="com.payroll.testcases.ClientTest">
-        <test-method is-config="true" signature="beforeSuiteLog()[pri:0, instance:com.payroll.testcases.ClientTest@29215f06]" started-at="2022-05-05T10:32:36 IST" name="beforeSuiteLog" finished-at="2022-05-05T10:32:37 IST" duration-ms="699" status="PASS">
+    <test started-at="2022-05-06T05:13:32 IST" name="Test" finished-at="2022-05-06T05:16:33 IST" duration-ms="180401">
+      <class name="com.payroll.testcases.ReportTest">
+        <test-method is-config="true" signature="beforeSuiteLog()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:13:31 IST" name="beforeSuiteLog" finished-at="2022-05-06T05:13:32 IST" duration-ms="1449" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuiteLog -->
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.payroll.testcases.ClientTest@29215f06]" started-at="2022-05-05T10:32:37 IST" name="loadConfig" finished-at="2022-05-05T10:32:37 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:13:32 IST" name="loadConfig" finished-at="2022-05-06T05:13:32 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="launching1()[pri:0, instance:com.payroll.testcases.ClientTest@29215f06]" started-at="2022-05-05T10:32:37 IST" name="launching1" finished-at="2022-05-05T10:33:03 IST" duration-ms="26525" status="PASS">
+        <test-method is-config="true" signature="launching1()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:13:32 IST" name="launching1" finished-at="2022-05-06T05:14:15 IST" duration-ms="42594" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launching1 -->
-        <test-method signature="verifyCreateClient()[pri:12, instance:com.payroll.testcases.ClientTest@29215f06]" started-at="2022-05-05T10:33:03 IST" name="verifyCreateClient" finished-at="2022-05-05T10:33:36 IST" duration-ms="32965" status="PASS">
+        <test-method signature="validateDeductionHistorySelectWorker()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:14:15 IST" name="validateDeductionHistorySelectWorker" finished-at="2022-05-06T05:14:37 IST" duration-ms="22216" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCreateClient -->
-        <test-method is-config="true" signature="aftersuite()[pri:0, instance:com.payroll.testcases.ClientTest@29215f06]" started-at="2022-05-05T10:33:36 IST" name="aftersuite" finished-at="2022-05-05T10:33:36 IST" duration-ms="70" status="PASS">
+        </test-method> <!-- validateDeductionHistorySelectWorker -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:14:37 IST" name="closeBrowser" finished-at="2022-05-06T05:14:39 IST" duration-ms="2047" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launching1()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:14:39 IST" name="launching1" finished-at="2022-05-06T05:14:56 IST" duration-ms="16596" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launching1 -->
+        <test-method signature="verifyClientSearch()[pri:24, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:14:56 IST" name="verifyClientSearch" finished-at="2022-05-06T05:15:03 IST" duration-ms="6626" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyClientSearch -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:15:03 IST" name="closeBrowser" finished-at="2022-05-06T05:15:03 IST" duration-ms="527" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launching1()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:15:03 IST" name="launching1" finished-at="2022-05-06T05:15:21 IST" duration-ms="18175" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launching1 -->
+        <test-method signature="verifyExportPageDetails()[pri:25, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:15:21 IST" name="verifyExportPageDetails" finished-at="2022-05-06T05:15:30 IST" duration-ms="8804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyExportPageDetails -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:15:30 IST" name="closeBrowser" finished-at="2022-05-06T05:15:30 IST" duration-ms="29" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launching1()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:15:30 IST" name="launching1" finished-at="2022-05-06T05:16:01 IST" duration-ms="30765" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launching1 -->
+        <test-method signature="verifyGraphicalData()[pri:26, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:16:01 IST" name="verifyGraphicalData" finished-at="2022-05-06T05:16:11 IST" duration-ms="10348" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyGraphicalData -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:16:11 IST" name="closeBrowser" finished-at="2022-05-06T05:16:33 IST" duration-ms="21448" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="aftersuite()[pri:0, instance:com.payroll.testcases.ReportTest@3527942a]" started-at="2022-05-06T05:16:33 IST" name="aftersuite" finished-at="2022-05-06T05:16:37 IST" duration-ms="4527" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aftersuite -->
-      </class> <!-- com.payroll.testcases.ClientTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.payroll.testcases.ReportTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

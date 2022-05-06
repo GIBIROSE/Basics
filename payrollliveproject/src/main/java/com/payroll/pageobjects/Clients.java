@@ -102,11 +102,10 @@ public class Clients extends BaseClass {
 	@FindBy(id = "client-vat_rate")
 	WebElement txtVatRate;
 
-	// @FindBy(xpath = "//button[@type='submit']")
 	@FindBy(xpath = "(//button[normalize-space()='Save'])[1]")
 	WebElement saveButton;
 
-	@FindBy(xpath = "//th[normalize-space()='Client Name']")
+	@FindBy(xpath = "//ul[@class='breadcrumb']")
 	WebElement savedClientDetails;
 
 	@FindBy(xpath = "//a[@href='/payrollapp/client/invoice?id=755']")
@@ -120,18 +119,16 @@ public class Clients extends BaseClass {
 
 	@FindBy(xpath = "//a[@href='/payrollapp/client/view?id=1']//span[@class='glyphicon glyphicon-eye-open']")
 	WebElement viewOneExistingClient;
-	
+
 	@FindBy(xpath = "//td[normalize-space()='Amalaxaviour']")
 	WebElement viewOneUserEnlargedView;
-	
-	@FindBy(xpath="//a[@href='/payrollapp/client/update?id=1']//span[@class='glyphicon glyphicon-pencil']")
-	WebElement editOneExistingClient;	
-	
-	
-	@FindBy(xpath="//li[normalize-space()='Update']")
+
+	@FindBy(xpath = "//a[@href='/payrollapp/client/update?id=1']//span[@class='glyphicon glyphicon-pencil']")
+	WebElement editOneExistingClient;
+
+	@FindBy(xpath = "//li[normalize-space()='Update']")
 	WebElement existingUserEditWindowEnlargedView;
-	
-	
+
 	public boolean editExistingClient() {
 		Action action = new Action();
 		action.click(driver, editOneExistingClient);
@@ -141,141 +138,72 @@ public class Clients extends BaseClass {
 	public boolean viewExistngClient() {
 		Action action = new Action();
 		action.click(driver, viewOneExistingClient);
-		 return viewOneUserEnlargedView.isDisplayed();
+		return viewOneUserEnlargedView.isDisplayed();
 	}
 
 	public boolean searchDisplay() {
-		// clientNameSearchBox.isDisplayed();
 		action = new Action();
 		return action.isDisplayed(driver, clientNameSearchBox);
 	}
 
-	public boolean searchClients() {
-		// clientBtn.click();
-		// action.click(driver,clientBtn);
-		clientNameSearchBox.sendKeys("sam");
-		clientIDSearchBox.sendKeys("3");
-		// action.type(clientNameSearchBox, "sam");
+	public boolean searchClients() throws Exception {
+
+		ExcelLibrary lib = new ExcelLibrary();
+		ArrayList excel = lib.getData("existingclientsearch");
+		Action action = new Action();
+		action.type(clientNameSearchBox, (String) excel.get(0));
 		searchBox.click();
-		// action.click(driver,searchBox );
 		boolean result = searchResultByName.isDisplayed();
 		return result;
 	}
 
-	public boolean searchClientByID() {
-		action.type(clientIDSearchBox, "3");
+	public boolean searchClientByID() throws Exception {
+
+		ExcelLibrary lib = new ExcelLibrary();
+		ArrayList excel = lib.getData("clientIDsearch");
+		Action action = new Action();
+		action.type(clientIDSearchBox, (String) excel.get(0));
 		boolean result = searchResultByID.isDisplayed();
 		return result;
 	}
 
-	public void resetEnbledVerify() {
-		action.type(clientIDSearchBox, "3");
+	public void resetEnbledVerify() throws Exception {
+
+		ExcelLibrary lib = new ExcelLibrary();
+		ArrayList excel = lib.getData("resetsearch");
+		Action action = new Action();
+		action.type(clientIDSearchBox, (String) excel.get(0));
+
 		action.click(driver, resetBtn);
-		action.type(clientIDSearchBox, "4");
+		action.type(clientIDSearchBox, (String) excel.get(0));
 	}
 
-	public void createClientStep() throws Exception {
-		 ExcelLibrary lib = new ExcelLibrary();
-
+	public boolean createClientStep() throws Exception {
+		ExcelLibrary lib = new ExcelLibrary();
+		ArrayList excel = lib.getData("clients");
 		Action action = new Action();
 		action.click(driver, createClient);
 		action.click(driver, txtBranch);
-		ArrayList excel=lib.getData("clients");
-
-		// what to do next
 		action.selectBySendkeys("Alpha_new", txtBranch);
 		action.selectByIndex(txtDivision, 1);
-		// action.click(driver, txtDivision);
 		action.selectByVisibleText("NewAlpha", txtBranch);
 		action.type(txtCreateClient, (String) excel.get(0));
-
 		action.type(txtAddress, (String) excel.get(1));
 		action.type(txtPostcode, (String) excel.get(2));
 		action.type(txtInvoiceContact, (String) excel.get(3));
-
 		action.type(txtPhone, (String) excel.get(4));
 		action.type(txtEmail, (String) excel.get(5));
-
 		action.type(txtCompanyReg, (String) excel.get(6));
 		action.selectByIndex(txtMasterDocument, 2);
 		action.selectByIndex(txtInvoiceOrder, 2);
 		action.selectByIndex(txtInvoiceDeliveryMethod, 2);
-
 		action.type(txtSettlementDays, (String) excel.get(7));
-
 		action.selectByIndex(txtVatRate, 3);
 		action.explicitWait(driver, saveButton, 10);
-		// saveButton.click();
-
-		
 		action.JSClick(driver, saveButton);
-		//action.click(driver, saveButton);
-		// Thread.sleep(2000);
-		// String actual = savedClientDetails.getText();
-		// return actual;
+		boolean actual = savedClientDetails.isDisplayed();
+		return actual;
 
-	}
-
-	public void createClientBranchSelect() {
-		action.click(driver, txtBranch);
-
-		action.selectBySendkeys("Alpha_new", txtBranch);
-	}
-
-	public void createClientDivisionSelect() {
-		action.click(driver, txtDivision);
-		action.selectByVisibleText("NewAlpha", txtBranch);
-	}
-
-	public void createClientClientName() {
-		action.type(txtCreateClient, "Danil Medvedev");
-
-	}
-
-	public void createClientClientAddress() {
-		action.type(txtAddress, "WhiteMountStreet, Chelsea");
-	}
-
-	public void createClientPostCode() {
-		action.type(txtPostcode, "98765");
-	}
-
-	public void createClientInvoiceContact() {
-		action.type(txtInvoiceContact, "Andrey");
-	}
-
-	public void createClientPhone() {
-		action.type(txtPhone, "7867568");
-
-	}
-
-	public void createClientEmail() {
-		action.type(txtEmail, "danil@gmail.com");
-	}
-
-	public void createClientCompanyReg() {
-		action.type(txtCompanyReg, "Jeromian");
-	}
-
-	public void createClientInvoiceOrder() {
-		action.selectByIndex(txtInvoiceOrder, 1);
-	}
-
-	public void createClientMasterDocument() {
-
-		action.selectByIndex(txtMasterDocument, 2);
-	}
-
-	public void createClientSettlementDays() {
-		action.type(txtSettlementDays, "12");
-	}
-
-	public void createClientVatType() {
-		action.selectByIndex(txtVatRate, 3);
-	}
-
-	public void createClientSaveBtn() {
-		action.click(driver, saveButton);
 	}
 
 }

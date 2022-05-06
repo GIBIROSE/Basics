@@ -142,12 +142,7 @@ public class HomePage extends BaseClass {
 		return new Deduction();
 	}
 
-	public void validateTitle() {
-		Action action = new Action();
-		// action.g
-
-	}
-
+	
 	public String validateWelcomeMesg() {
 		String messageWelcome = welcomeMesg.getText();
 		return messageWelcome;
@@ -158,4 +153,15 @@ public class HomePage extends BaseClass {
 		return appNameDashboard;
 	}
 
+	
+	
+	public String validateAppDetails() {
+		
+		String output=appName.getText();
+		return output;
+		
+		
+	
+		
+	}
 }

@@ -21,7 +21,7 @@ public class PayslipTest extends BaseClass {
 	}
 
 	@Test(priority = 31)
-	public void validatePagination() {
+	public void validatePagination() throws Exception {
 		Log.startTestCase(" PAYROLL APPLICATION tc payslip");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -48,7 +48,7 @@ public class PayslipTest extends BaseClass {
 	}
 
 	@Test(priority = 30,groups= {"sanity"})
-	public void validateDownloadPayslip() throws AWTException {
+	public void validateDownloadPayslip() throws AWTException, InterruptedException {
 
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
