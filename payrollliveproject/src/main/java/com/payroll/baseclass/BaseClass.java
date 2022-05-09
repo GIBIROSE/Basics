@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -25,21 +26,22 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
+	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 	public static Properties prop;
-	public static WebDriver driver;
 
-	
-	@BeforeSuite(groups= {"smoke"})
+	@BeforeSuite(groups = { "smoke" })
 	public void beforeSuiteLog() {
 		ExtentManager.setExtent();
 		DOMConfigurator.configure("log4j.xml");
 	}
-	
-	
-	
-	
+
+	public static WebDriver getDriver() {
+		// Get Driver from threadLocalmap
+		return driver.get();
+	}
+
 	// loadConfig method is to load the configuration
-	@BeforeTest(groups= {"smoke"})
+	@BeforeTest(groups = { "smoke" })
 	public void loadConfig() {
 
 		try {
@@ -54,42 +56,38 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-	 //@Parameters("browser")
-	// @ BeforeClass(alwaysRun=true)
-	public void launchApp() {
 
-		String browserName = prop.getProperty("browser");
+	public void launchApp(String browserName) {
+
+		// String browserName = prop.getProperty("browser");
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+
+			driver.set(new ChromeDriver());
 		} else if (browserName.equalsIgnoreCase("FireFox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+
+			driver.set(new FirefoxDriver());
 		} else if (browserName.equalsIgnoreCase("edge")) {
-			//WebDriverManager.iedriver().setup();
+
 			WebDriverManager.edgedriver().setup();
-			 driver = new EdgeDriver();
-			//driver = new InternetExplorerDriver();
+			driver.set(new EdgeDriver());
+
 		}
 		// Maximize the screen
-		driver.manage().window().maximize();
+		getDriver().manage().window().maximize();
 		Action action = new Action();
 		// Implicit TimeOuts
-		action.implicitWait(driver, 10);
+		action.implicitWait(getDriver(), 10);
 		// PageLoad TimeOuts
-		action.pageLoadTimeOut(driver, 30);
-		driver.get(prop.getProperty("url"));
+		action.pageLoadTimeOut(getDriver(), 30);
+		getDriver().get(prop.getProperty("url"));
 
 	}
 
-	/*@AfterTest
-	public void tearDown() {
-		driver.close();
-	}*/
-	@AfterSuite(groups= {"smoke"})
-	public void aftersuite()
-	{
+	@AfterSuite(groups = { "smoke" })
+	public void aftersuite() {
 		ExtentManager.endReport();
-		
+
 	}
 }

@@ -14,7 +14,7 @@ import com.payroll.utilities.ExcelLibrary;
 public class Deduction extends BaseClass {
 
 	public Deduction() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[@href='/payrollapp/deduction/index']")
@@ -55,30 +55,30 @@ public class Deduction extends BaseClass {
 
 	public boolean addDeduction() throws Exception {
 		Action action = new Action();
-		action.click(driver, addDeductionSideTab);
-		action.explicitWait(driver, addDeductionSideTab, 10);
-		action.explicitWait(driver, addDeductionWorker, 10);
+		action.click(getDriver(), addDeductionSideTab);
+		action.explicitWait(getDriver(), addDeductionSideTab, 10);
+		action.explicitWait(getDriver(), addDeductionWorker, 10);
 		action.selectByIndex(addDeductionWorker, 1);
 		action.selectByIndex(addDeductionType, 1);
 		ExcelLibrary lib = new ExcelLibrary();
 		ArrayList excel = lib.getData("adddeduction");
 		action.type(addDeductionAmount, (String) excel.get(0));
 		// action.type(addDeductionWorker, (String) excel.get(1));
-		action.JSClick(driver, addDeductionSaveButton);
+		action.JSClick(getDriver(), addDeductionSaveButton);
 		boolean result = addDeductionSavedDetailsPage.isDisplayed();
 		return result;
 	}
 
 	public boolean deductionVerifyViewAllWorkers() {
 		Action action = new Action();
-		action.click(driver, deductionBtn);
+		action.click(getDriver(), deductionBtn);
 		boolean result = summaryDetductionDetailsShow1to20.isDisplayed();
 		return result;
 	}
 
 	public boolean existingWorkerView() {
 		Action action = new Action();
-		action.click(driver, deductionViewOneUserEyeBtn);
+		action.click(getDriver(), deductionViewOneUserEyeBtn);
 		boolean result = detailedViewOneUser.isDisplayed();
 		return result;
 	}

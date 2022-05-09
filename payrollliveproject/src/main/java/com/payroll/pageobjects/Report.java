@@ -14,7 +14,7 @@ import com.payroll.baseclass.BaseClass;
 public class Report extends BaseClass {
 
 	public Report() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[normalize-space()='Report']")
@@ -64,72 +64,37 @@ public class Report extends BaseClass {
 
 	@FindBy(xpath = "//li[@class='select2-results__option']")
 	WebElement allElements;
-	
-	@FindBy(id="invoicesearch-client_name")
+
+	@FindBy(id = "invoicesearch-client_name")
 	WebElement invoiceClientName;
-	
-	@FindBy(id="invoicesearch-client_id")
+
+	@FindBy(id = "invoicesearch-client_id")
 	WebElement invoiceClientNumber;
-	
-	@FindBy(xpath="//li[@class='select2-results__option']")
+
+	@FindBy(xpath = "//li[@class='select2-results__option']")
 	WebElement invoiceSearch;
-	
-	
-	@FindBy(xpath="//button[@type='submit']")
+
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElement searchBtn;
-	
-	
-	
-	
-	
-	
-
-	public void deductionSelectWorker() throws Exception {
-		Action action=new Action();
-		action.click(driver, deductionHistoryClick);
-		action.click(driver, deductionDownArrow);
-		//action.type(deductionDownArrow, "Tom Mathew Xaviour");
-		//action.click(driver, workerDeductioBtn);
-		//action.selectByIndex(deductionDownArrow, 2);
-		action.explicitWait(driver, workerTxtBox, 10);
-		//action.JSClick(driver, workerDeductioBtn);
-		List<WebElement> alloptions = driver.findElements(By.xpath("//li[@role='option']"));
-		for (WebElement option : alloptions) {
-			if (option.getText().equalsIgnoreCase("Dennis  Benny")) {
-				option.click();
-				break;
-
-			}
-		}
-		
-		
-		//action.selectByVisibleText("Tom Mathew Xaviour", workerTxtBox);
-		
-		//action.selectBySendkeys(null, deductionHistorySelectWorker)
-		
-		
-	}
 
 	public boolean verifyReortSummary() {
 		summaryReport.isDisplayed();
 		return summaryReport.isDisplayed();
 	}
 
-	public void exportPageDataDetails() {
+	public boolean exportPageDataDetails() {
 		Action action = new Action();
-		action.click(driver, exportPageDataBtn);
-		action.click(driver, exportPageDataExcel);
-		action.click(driver, exportPageDataPDF);
+		action.click(getDriver(), exportPageDataBtn);
+		action.click(getDriver(), exportPageDataExcel);
+		action.click(getDriver(), exportPageDataPDF);
+		return exportPageDataExcel.isEnabled();
 
 	}
 
-	public void performanceGraphical() {
+	public boolean performanceGraphical() {
 		Action action = new Action();
-		action.click(driver, companyPerformanceClick);
-		performanceGraph.isDisplayed();
+		action.click(getDriver(), companyPerformanceClick);
+		return performanceGraph.isDisplayed();
 	}
 
-	public void verifyDeductionHistory() {
-
-	}
 }

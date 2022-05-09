@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.payroll.baseclass.BaseClass;
@@ -14,11 +15,13 @@ import com.payroll.pageobjects.LoginPage;
 public class CompanyTest extends BaseClass {
 
 	
-
-	@BeforeMethod
-	public void launching1() {
-		launchApp();
+	@Parameters("browser")
+	@BeforeMethod(groups= {"smoke"})
+	public void launching(String browser) {
+		launchApp(browser);
 	}
+
+	
 
 	
 	@Test(priority=6,groups= {"regression"})
@@ -47,7 +50,7 @@ public class CompanyTest extends BaseClass {
 	
 	@AfterMethod
 	public void closeBrowser() {
-		driver.close();
+		getDriver().close();
 	}
 
 }

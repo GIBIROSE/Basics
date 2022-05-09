@@ -14,7 +14,7 @@ public class LoginPage extends BaseClass {
 
 	public LoginPage() {
 
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(id = "loginform-username")
@@ -42,7 +42,7 @@ public class LoginPage extends BaseClass {
 	WebElement passwordErrorText;
 	
 	public String verifyURL() {
-		return driver.getCurrentUrl();
+		return getDriver().getCurrentUrl();
 	}
 	
 	
@@ -65,7 +65,7 @@ public class LoginPage extends BaseClass {
 		Action action=new Action();
 		action.type(textUserName, "    ");
 		action.type(txtPassword, "    ");
-		action.click(driver, loginButton);
+		action.click(getDriver(), loginButton);
 		String output=usernameErrorText.getText();
 		return output;
 		
@@ -75,7 +75,7 @@ public class LoginPage extends BaseClass {
 		Action action=new Action();
 		action.type(textUserName, "    ");
 		action.type(txtPassword, "    ");
-		action.click(driver, loginButton);
+		action.click(getDriver(), loginButton);
 		passwordErrorText.getText();
 	}
 	
@@ -84,8 +84,8 @@ public class LoginPage extends BaseClass {
 		Action action=new Action();
 		action.type(textUserName, "    ");
 		action.type(txtPassword, "    ");
-		action.click(driver, loginButton);
-		action.click(driver, resetClick);
+		action.click(getDriver(), loginButton);
+		action.click(getDriver(), resetClick);
 		String output=pwdResetNextPageText.getText();
 		return output;
 		
@@ -97,14 +97,14 @@ public class LoginPage extends BaseClass {
 		//Action action = new Action();
 		action.type(textUserName, uname);
 		action.type(txtPassword, pwd);
-		action.click(driver, loginButton);
+		action.click(getDriver(), loginButton);
 		return new HomePage();
 	}
 	
 	
 	public String verifyReset() {
-		action.click(driver, resetClick);
-	    String output=driver.getCurrentUrl();
+		action.click(getDriver(), resetClick);
+	    String output=getDriver().getCurrentUrl();
 	    return output;
 	}
 	

@@ -29,7 +29,7 @@ public class ExcelLibrary {
 		// System.out.println(sheets);
 		// iterating through all the sheets and finding the required one
 		for (int i = 0; i < sheets; i++) {
-			// fetching the required sheet
+			// fetching the required sheet name
 			if (wb.getSheetName(i).equalsIgnoreCase("client")) {
 				// working on the right sheeet
 				XSSFSheet sheet = wb.getSheetAt(i);

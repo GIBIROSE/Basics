@@ -4,23 +4,26 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.payroll.baseclass.BaseClass;
 import com.payroll.pageobjects.HomePage;
 import com.payroll.pageobjects.LoginPage;
 import com.payroll.pageobjects.Logout;
+import com.payroll.utilities.Log;
 
 public class LogoutTest extends BaseClass {
 
-	@BeforeMethod(groups = {"smoke" })
-	public void launching1() {
-		launchApp();
+	@Parameters("browser")
+	@BeforeMethod(groups= {"smoke"})
+	public void launching(String browser) {
+		launchApp(browser);
 	}
 
 	@Test(priority = 27, groups = {"smoke" })
 	public void logoutVerify() {
-
+		Log.startTestCase("PAYROLL APPLICATION: verify Logout");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
@@ -49,7 +52,7 @@ public class LogoutTest extends BaseClass {
 
 	@AfterMethod
 	public void closeBrowser() {
-		driver.close();
+		getDriver().close();
 	}
 
 }

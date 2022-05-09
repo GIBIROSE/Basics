@@ -17,7 +17,7 @@ public class Clients extends BaseClass {
 	public Action action;
 
 	public Clients() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 
 	}
 
@@ -131,19 +131,19 @@ public class Clients extends BaseClass {
 
 	public boolean editExistingClient() {
 		Action action = new Action();
-		action.click(driver, editOneExistingClient);
+		action.click(getDriver(), editOneExistingClient);
 		return existingUserEditWindowEnlargedView.isDisplayed();
 	}
 
 	public boolean viewExistngClient() {
 		Action action = new Action();
-		action.click(driver, viewOneExistingClient);
+		action.click(getDriver(), viewOneExistingClient);
 		return viewOneUserEnlargedView.isDisplayed();
 	}
 
 	public boolean searchDisplay() {
 		action = new Action();
-		return action.isDisplayed(driver, clientNameSearchBox);
+		return action.isDisplayed(getDriver(), clientNameSearchBox);
 	}
 
 	public boolean searchClients() throws Exception {
@@ -167,23 +167,24 @@ public class Clients extends BaseClass {
 		return result;
 	}
 
-	public void resetEnbledVerify() throws Exception {
+	public String resetEnbledVerify() throws Exception {
 
 		ExcelLibrary lib = new ExcelLibrary();
 		ArrayList excel = lib.getData("resetsearch");
 		Action action = new Action();
 		action.type(clientIDSearchBox, (String) excel.get(0));
 
-		action.click(driver, resetBtn);
+		action.click(getDriver(), resetBtn);
 		action.type(clientIDSearchBox, (String) excel.get(0));
+		return (String) excel.get(0);
 	}
 
 	public boolean createClientStep() throws Exception {
 		ExcelLibrary lib = new ExcelLibrary();
 		ArrayList excel = lib.getData("clients");
 		Action action = new Action();
-		action.click(driver, createClient);
-		action.click(driver, txtBranch);
+		action.click(getDriver(), createClient);
+		action.click(getDriver(), txtBranch);
 		action.selectBySendkeys("Alpha_new", txtBranch);
 		action.selectByIndex(txtDivision, 1);
 		action.selectByVisibleText("NewAlpha", txtBranch);
@@ -199,8 +200,8 @@ public class Clients extends BaseClass {
 		action.selectByIndex(txtInvoiceDeliveryMethod, 2);
 		action.type(txtSettlementDays, (String) excel.get(7));
 		action.selectByIndex(txtVatRate, 3);
-		action.explicitWait(driver, saveButton, 10);
-		action.JSClick(driver, saveButton);
+		action.explicitWait(getDriver(), saveButton, 10);
+		action.JSClick(getDriver(), saveButton);
 		boolean actual = savedClientDetails.isDisplayed();
 		return actual;
 

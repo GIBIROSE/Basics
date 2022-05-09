@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.payroll.baseclass.BaseClass;
@@ -18,9 +19,11 @@ import com.payroll.utilities.Log;
 public class LoginTest extends BaseClass {
 	public LoginPage loginpg = new LoginPage();
 
+	
+	@Parameters("browser")
 	@BeforeMethod(groups= {"smoke"})
-	public void launching() {
-		launchApp();
+	public void launching(String browser) {
+		launchApp(browser);
 	}
 
 	@Test(priority = 1, groups = { "smoke" })
@@ -40,7 +43,7 @@ public class LoginTest extends BaseClass {
 		LoginPage loginpg = new LoginPage();
 		Log.info("Going to enter username and password for the application");
 		loginpg.login(prop.getProperty("username"), prop.getProperty("password"));
-		if (driver.getTitle().equals("Login")) {
+		if (getDriver().getTitle().equals("Login")) {
 			Assert.assertTrue(true);
 		} else {
 			Assert.assertTrue(false);
@@ -52,8 +55,8 @@ public class LoginTest extends BaseClass {
 	public void validateInvalidLogin1(String u, String p) {
 		LoginPage loginpg = new LoginPage();
 		 loginpg.invalidLogin(u, p);
-		 String actual=driver.getTitle();
-		 String expected="LOGIN";
+		 String actual=getDriver().getTitle();
+		 String expected="Login";
 		 Assert.assertEquals(actual, expected);
 		 
 		 
@@ -93,7 +96,7 @@ public class LoginTest extends BaseClass {
 
 	@AfterMethod(groups= {"smoke"})
 	public void closeBrowser() {
-		driver.close();
+		getDriver().close();
 	}
 
 }

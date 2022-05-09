@@ -8,7 +8,7 @@ public class Company extends LoginPage {
 	
 	
 	public Company() {
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(getDriver(),this);
 	}
 	
 	

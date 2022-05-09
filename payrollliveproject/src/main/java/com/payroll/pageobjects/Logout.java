@@ -12,7 +12,7 @@ import com.payroll.baseclass.BaseClass;
 public class Logout extends BaseClass {
 
 	public Logout() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[@href='/payrollapp/user/profile']")
@@ -30,14 +30,14 @@ public class Logout extends BaseClass {
 	public String verifyLogOutFeature() {
 
 		Action action = new Action();
-		action.click(driver, logOutLinkClick);
-		return driver.getCurrentUrl();
+		action.click(getDriver(), logOutLinkClick);
+		return getDriver().getCurrentUrl();
 
 	}
 
 	public String verifyFullProfileViewErrorFeature() {
 		Action action = new Action();
-		action.click(driver, viewProfileLink);
+		action.click(getDriver(), viewProfileLink);
 		String result = viewProfileLinkErrorMessg.getText();
 		return result;
 	}

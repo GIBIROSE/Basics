@@ -8,12 +8,12 @@
 
 
   <test thread-count="5" name="Test">
-
+<parameter name="browser" value="chrome"></parameter>
 
 
 <classes>
 
-<class name="com.payroll.testcases.TimesheetTest">
+<class name="com.payroll.testcases.LogoutTest">
 
 
 

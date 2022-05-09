@@ -16,7 +16,7 @@ public class Workers extends BaseClass {
 	Action action = new Action();
 
 	public Workers() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[@href='/payrollapp/worker/index']")
@@ -125,7 +125,7 @@ public class Workers extends BaseClass {
 
 	public boolean enterCreateNewWorker() throws Exception {
 		Action action = new Action();
-		action.click(driver, createWorkerSideTab);
+		action.click(getDriver(), createWorkerSideTab);
 		
 		ExcelLibrary lib = new ExcelLibrary();
 		ArrayList excel=lib.getData("workerdetails");
@@ -146,13 +146,13 @@ public class Workers extends BaseClass {
 		action.type(createWorkerPhone, (String) excel.get(4));		
 		action.type(createWorkerNiNumber, (String) excel.get(5));
 		action.type(createWorkerPostCode, (String) excel.get(6));
-		action.click(driver, createWorkerNext);		
+		action.click(getDriver(), createWorkerNext);		
 		action.selectByIndex(workerBankDetailsPaymentMethod, 1);
 		action.type(workerBankDetailAccountNumber, (String) excel.get(7));
 		action.type(workerBankDetailAccountName, (String) excel.get(8));
 		action.type(workerBankDetailSortCode, (String) excel.get(9));
 		action.type(workerBankDetailStartDate, (String) excel.get(10));
-		action.click(driver, workerBankDetailSave);
+		action.click(getDriver(), workerBankDetailSave);
 		
 		boolean result = createdWorkerDisplayDetails.isDisplayed();
 		return result;
@@ -161,52 +161,52 @@ public class Workers extends BaseClass {
 
 	public boolean searchDisplayWorkers() {
 		Action action = new Action();
-		return action.isDisplayed(driver, searchFirstName);
+		return action.isDisplayed(getDriver(), searchFirstName);
 
 	}
 
 	public boolean createWorkerVerify() {
 		Action action = new Action();
-		action.click(driver, createWorkerSideTab);
+		action.click(getDriver(), createWorkerSideTab);
 		boolean result = createWorkerDisplayTabTop.isDisplayed();
 		return result;
 	}
 
 	public boolean searchFirstName() {
 		Action action = new Action();
-		action.click(driver, searchFirstName);
+		action.click(getDriver(), searchFirstName);
 		action.type(searchFirstName, "sam");
-		action.click(driver, searchBox);
+		action.click(getDriver(), searchBox);
 		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
 
 	public boolean searchLastName() {
 		Action action = new Action();
-		action.click(driver, searchLastName);
-		action.click(driver, searchBox);
+		action.click(getDriver(), searchLastName);
+		action.click(getDriver(), searchBox);
 		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
 
 	public boolean searchNiNumber() {
 		Action action = new Action();
-		action.click(driver, searchNiNumber);
-		action.click(driver, searchBox);
+		action.click(getDriver(), searchNiNumber);
+		action.click(getDriver(), searchBox);
 		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
 
 	public boolean searchPostCode() {
 		Action action = new Action();
-		action.click(driver, searchPostCode);
-		action.click(driver, searchBox);
+		action.click(getDriver(), searchPostCode);
+		action.click(getDriver(), searchBox);
 		boolean result = workersSearchResults.isDisplayed();
 		return result;
 	}
 
 	public boolean verifyResetBtn() {
-		action.click(driver, resetBox);
+		action.click(getDriver(), resetBox);
 		boolean output = resetBox.isEnabled();
 		return output;
 

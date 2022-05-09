@@ -14,7 +14,7 @@ public class HomePage extends BaseClass {
 
 	public HomePage() {
 
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[@href='/payrollapp/site/index']")
@@ -27,7 +27,6 @@ public class HomePage extends BaseClass {
 	WebElement welcomeMesg;
 
 	@FindBy(xpath = "//img[@alt='logo']")
-	// @FindBy(xpath="//div[@class='col-sm-2 logo']")
 	WebElement logoApp;
 
 	@FindBy(xpath = "//div[@class='col-sm-6 page-title'] //h1")
@@ -50,51 +49,44 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//a[@href='/payrollapp/report/payslip']")
 	WebElement reportBtnClick;
-	
-	
-	@FindBy(xpath="//a[@href='/payrollapp/timesheet/index']")
-	WebElement timeSheetBtnClick;
-	
-	@FindBy(xpath="//a[@href='/payrollapp/payslip/index']")
-	WebElement paySlipBtnClick;
-	
-	public Payslip validatePaySlipClick() {
-		Action action=new Action();
 
-		action.isDisplayed(driver, paySlipBtnClick);
-		action.click(driver, paySlipBtnClick);
+	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/index']")
+	WebElement timeSheetBtnClick;
+
+	@FindBy(xpath = "//a[@href='/payrollapp/payslip/index']")
+	WebElement paySlipBtnClick;
+
+	public Payslip validatePaySlipClick() {
+		Action action = new Action();
+
+		action.isDisplayed(getDriver(), paySlipBtnClick);
+		action.click(getDriver(), paySlipBtnClick);
 		return new Payslip();
-		
+
 	}
-	
-	
-	
-	
+
 	public Timesheet validateTimeSheetClick() {
 		Action action = new Action();
 
-		action.isDisplayed(driver, timeSheetBtnClick);
-		action.click(driver, timeSheetBtnClick);
+		action.isDisplayed(getDriver(), timeSheetBtnClick);
+		action.click(getDriver(), timeSheetBtnClick);
 		return new Timesheet();
-		
+
 	}
-	
-	
-	
 
 	public Report validateReportClick() {
 		Action action = new Action();
 
-		action.isDisplayed(driver, reportBtnClick);
-		action.click(driver, reportBtnClick);
+		action.isDisplayed(getDriver(), reportBtnClick);
+		action.click(getDriver(), reportBtnClick);
 		return new Report();
 	}
 
 	public Company validateCompany() {
 		Action action = new Action();
 
-		action.isDisplayed(driver, companyBtn);
-		action.click(driver, companyBtn);
+		action.isDisplayed(getDriver(), companyBtn);
+		action.click(getDriver(), companyBtn);
 		return new Company();
 	}
 
@@ -102,47 +94,42 @@ public class HomePage extends BaseClass {
 
 		Action action = new Action();
 
-		action.isDisplayed(driver, logOutCarolClick);
-		action.click(driver, logOutCarolClick);
+		action.isDisplayed(getDriver(), logOutCarolClick);
+		action.click(getDriver(), logOutCarolClick);
 		return new Logout();
 
 	}
 
 	public boolean validateLogo() {
-		// Action action = new Action();
-		// return action.isDisplayed(driver, logoApp);
-		// dashboard.click();
-		// boolean loginButtonVerify=logoApp.isDisplayed();
-		// return loginButtonVerify;
+
 		Action action = new Action();
-		return action.isDisplayed(driver, logoApp);
+		return action.isDisplayed(getDriver(), logoApp);
 	}
 
 	public Clients verifyClickClient() {
 		Action action = new Action();
 
-		action.isDisplayed(driver, clientBtn);
-		action.click(driver, clientBtn);
+		action.isDisplayed(getDriver(), clientBtn);
+		action.click(getDriver(), clientBtn);
 		return new Clients();
 
 	}
 
 	public Workers verifyClickWorkers() {
 		Action action = new Action();
-		action.isDisplayed(driver, clientBtn);
-		action.click(driver, workerBtn);
+		action.isDisplayed(getDriver(), clientBtn);
+		action.click(getDriver(), workerBtn);
 		return new Workers();
 
 	}
 
 	public Deduction verifyDeductionClick() {
 		Action action = new Action();
-		action.isDisplayed(driver, deductionBtnClick);
-		action.click(driver, deductionBtnClick);
+		action.isDisplayed(getDriver(), deductionBtnClick);
+		action.click(getDriver(), deductionBtnClick);
 		return new Deduction();
 	}
 
-	
 	public String validateWelcomeMesg() {
 		String messageWelcome = welcomeMesg.getText();
 		return messageWelcome;
@@ -153,15 +140,10 @@ public class HomePage extends BaseClass {
 		return appNameDashboard;
 	}
 
-	
-	
 	public String validateAppDetails() {
-		
-		String output=appName.getText();
+
+		String output = appName.getText();
 		return output;
-		
-		
-	
-		
+
 	}
 }

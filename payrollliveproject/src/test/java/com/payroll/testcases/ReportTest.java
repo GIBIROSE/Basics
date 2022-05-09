@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.payroll.baseclass.BaseClass;
@@ -16,26 +17,15 @@ import com.payroll.utilities.Log;
 
 public class ReportTest extends BaseClass {
 
-	@BeforeMethod
-	public void launching1() {
-		launchApp();
-	}
-
-	@Test
-	public void validateDeductionHistorySelectWorker() throws Exception {
-		Log.startTestCase("PAYROLL APPLICATION");
-		LoginPage pg = new LoginPage();
-		pg.login(prop.getProperty("username"), prop.getProperty("password"));
-		HomePage home = new HomePage();
-		home.validateReportClick();
-		Report report = new Report();
-		report.deductionSelectWorker();
-
+	@Parameters("browser")
+	@BeforeMethod(groups = { "smoke" })
+	public void launching(String browser) {
+		launchApp(browser);
 	}
 
 	@Test(priority = 24, groups = { "sanity" })
 	public void verifyClientSearch() throws InterruptedException {
-		Log.startTestCase("PAYROLL APPLICATION");
+		Log.startTestCase("PAYROLL APPLICATION: VIEW REPORT SUMMARY");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
@@ -54,7 +44,8 @@ public class ReportTest extends BaseClass {
 		HomePage home = new HomePage();
 		home.validateReportClick();
 		Report report = new Report();
-		report.exportPageDataDetails();
+		boolean actual=report.exportPageDataDetails();
+		Assert.assertTrue(actual);
 
 	}
 
@@ -66,13 +57,14 @@ public class ReportTest extends BaseClass {
 		HomePage home = new HomePage();
 		home.validateReportClick();
 		Report report = new Report();
-		report.performanceGraphical();
+		boolean actual = report.performanceGraphical();
+		Assert.assertTrue(actual);
 
 	}
 
 	@AfterMethod
 	public void closeBrowser() {
-		driver.close();
+		getDriver().close();
 	}
 
 }

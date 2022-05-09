@@ -1,5 +1,7 @@
 package com.payroll.pageobjects;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.payroll.actiondriver.Action;
 import com.payroll.baseclass.BaseClass;
+import com.payroll.utilities.ExcelLibrary;
 
-public class Timesheet  extends BaseClass{
-	
+public class Timesheet extends BaseClass {
 
 	public Timesheet() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[@href='/payrollapp/timesheet/index']")
@@ -52,7 +54,7 @@ public class Timesheet  extends BaseClass{
 	WebElement createTimeSheetBrowse;// test to upload file
 
 	@FindBy(xpath = "//span[normalize-space()='Upload']")
-	WebElement createTimeSheetUpload;
+	WebElement createTimeSheetUpload;// new
 
 	@FindBy(id = "timesheet-branch_id")
 	WebElement createTimeSheetSelectBranch;
@@ -92,43 +94,63 @@ public class Timesheet  extends BaseClass{
 
 	@FindBy(xpath = "//th[normalize-space()='Timesheet Number']")
 	WebElement createdTimeSheetShowBtn;
-	
-	@FindBy(xpath="(//td[contains(text(),'Pending')])[1]")
+
+	@FindBy(xpath = "(//td[contains(text(),'Pending')])[1]")
 	WebElement approvalStatusOneTimeSheet;
+
+	@FindBy(xpath = "//h1[normalize-space()='Create Timesheet']")
+	WebElement createTimeSheetNew;// after uppload deviates to this xpath
+
+	public String uploadFies() {
+		createTimeSheets.click();
+		Action action = new Action();
+		action.click(getDriver(), createTimeSheetBrowse);
+		createTimeSheetBrowse.sendKeys("C:\\Users\\Binu\\POS - Llolll.pdf");
+		createTimeSheetUpload.click();
+		return createTimeSheetNew.getText();
+
+	}
+
+	public void createTimesheet() throws Exception {
+		createTimeSheets.click();
+		Action action = new Action();
+		createTimeSheetSkip.click();
+		getDriver().switchTo().alert().accept();
+		getDriver().switchTo().defaultContent();
+		action.selectByIndex(createTimeSheetSelectBranch, 1);
+		action.selectByIndex(createTimeSheetSelectDivision, 1);
+		ExcelLibrary lib = new ExcelLibrary();
+		ArrayList excel = lib.getData("timesheet");
 	
+		action.type(createTimeSheetNumber, (String) excel.get(0));
+		action.selectByIndex(createTimeSheetSelectClient, 1);
+		action.type(createTimeSheetWeekEndDate, (String) excel.get(1));
+		action.selectByIndex(createTimeSheetSelectCategory, 2);
+		action.selectByIndex(createTimeSheetSelectWorker, 2);
+		action.type(createTimeSheetRatesUnits, (String) excel.get(2));
+		action.type(createTimeSheetRatesPay, (String) excel.get(3));
+		action.type(createTimeSheetBill, (String) excel.get(4));
+		createTimeSheetSaveButton.click();
+		
+		
+	}
+
 	public String verifyApproveTimeSheets() {
-		Action action=new Action();
-		action.click(driver, approveTimeSheet);
-		String output=approvalStatusOneTimeSheet.getText();
+		Action action = new Action();
+		action.click(getDriver(), approveTimeSheet);
+		String output = approvalStatusOneTimeSheet.getText();
 		return output;
 	}
-	
-	
-	
+
 	public void verifyGeneratePaySlip() {
-		
-		Action action=new Action();
-		action.click(driver, generatePaySlip);
-		driver.switchTo().alert().accept();
-		driver.switchTo().defaultContent();
-		driver.switchTo().alert().accept();
-		driver.switchTo().defaultContent();
-		
-		
-		
+
+		Action action = new Action();
+		action.click(getDriver(), generatePaySlip);
+		getDriver().switchTo().alert().accept();
+		getDriver().switchTo().defaultContent();
+		getDriver().switchTo().alert().accept();
+		getDriver().switchTo().defaultContent();
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
