@@ -20,7 +20,7 @@ public class DynamicDropDownSample {
 		driver.findElement(By.xpath("//input[@aria-label='Search'][1]")).click();
 		// driver.findElement(By.xpath("//input[@aria-label='Search'][1]")).sendKeys("Indiana");
 
-		// xpath of role option is common for all
+		// x path of role option is common for all
 		List<WebElement> alloptions = driver.findElements(By.xpath("//li[@role='option']"));
 		for (WebElement option : alloptions) {
 			if (option.getText().equalsIgnoreCase("Indiana")) {

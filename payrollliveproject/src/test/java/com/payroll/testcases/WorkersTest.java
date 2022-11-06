@@ -12,6 +12,7 @@ import com.payroll.pageobjects.Clients;
 import com.payroll.pageobjects.HomePage;
 import com.payroll.pageobjects.LoginPage;
 import com.payroll.pageobjects.Workers;
+import com.payroll.utilities.Log;
 
 public class WorkersTest extends BaseClass {
 
@@ -23,6 +24,7 @@ public class WorkersTest extends BaseClass {
 
 	@Test(priority = 1)
 	public void verifyClientSearch() throws InterruptedException {
+		Log.startTestCase("PAYROLL APPLICATION: verify summary of workers list");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
@@ -34,7 +36,7 @@ public class WorkersTest extends BaseClass {
 
 	@Test(priority = 2)
 	public void verifyFirstNameSearchBtn() {
-
+		Log.startTestCase("PAYROLL APPLICATION: verify search with first name possible");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
@@ -47,7 +49,7 @@ public class WorkersTest extends BaseClass {
 
 	@Test(priority = 3)
 	public void verifyCreateWorkerPossible() {
-
+		Log.startTestCase("PAYROLL APPLICATION: verify create worker page comes or not");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();
@@ -60,7 +62,7 @@ public class WorkersTest extends BaseClass {
 
 	@Test(priority = 18)
 	public void createNewWorker1() throws Exception {
-
+		Log.startTestCase("PAYROLL APPLICATION: verif we can create new worker");
 		LoginPage pg = new LoginPage();
 		pg.login(prop.getProperty("username"), prop.getProperty("password"));
 		HomePage home = new HomePage();

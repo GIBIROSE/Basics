@@ -14,13 +14,14 @@ public class ScrollCountries {
 		driver.manage().window().maximize();
 		driver.get("https://www.countries-ofthe-world.com/flags-of-the-world.html");
 		
+		
+		
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		
-		//1. case---> scrolling by pixel
-		//js.executeScript("window.scrollBy(0,1000)", "");
 		
-		//2.scroll into the value till we need
 		//3. scroll till end
+		
+		
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		
 		

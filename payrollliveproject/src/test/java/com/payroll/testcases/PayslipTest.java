@@ -53,7 +53,7 @@ public class PayslipTest extends BaseClass {
 
 	}
 
-	@Test(priority = 30,groups= {"sanity"})
+	/*@Test(priority = 30,groups= {"sanity"})
 	public void validateDownloadPayslip() throws AWTException, InterruptedException {
 		Log.startTestCase("PAYROLL APPLICATION: download payslip");
 		LoginPage pg = new LoginPage();
@@ -63,7 +63,7 @@ public class PayslipTest extends BaseClass {
 		Payslip slip = new Payslip();
 		slip.verifyDownloadPaySlipWorker();
 
-	}
+	}*/
 
 	@AfterMethod
 	public void closeBrowser() {

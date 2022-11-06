@@ -79,7 +79,7 @@ public class ClientTest extends BaseClass {
 		Assert.assertEquals(actual,expected);
 	}
 
-	@Test(priority = 12, groups = { "sanity" })
+	@Test(priority = 12, groups = { "smoke" })
 	public void verifyCreateClient() throws Exception {
 		Log.startTestCase(" PAYROLL APPLICATION CLIENT TC: create client ");
 		LoginPage pg = new LoginPage();

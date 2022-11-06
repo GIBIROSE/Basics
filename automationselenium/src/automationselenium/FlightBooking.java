@@ -38,7 +38,9 @@ public class FlightBooking {
 
 		WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@class='css-1tl2oa1']")));
+		
 		firstResult.click();
+		
 		firstResult.sendKeys("kannur");
 
 		// Thread.sleep(2000);

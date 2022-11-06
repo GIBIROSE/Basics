@@ -23,12 +23,19 @@ public class AlertsHandling {
 		
 	
 		WebElement frameEle=driver.findElement(By.id("iframeResult"));
+		
 		driver.switchTo().frame(frameEle);
+		
 		driver.findElement(By.xpath("//button[@onclick='myFunction()']")).click();
+		
 		driver.switchTo().alert();
+		
 		driver.switchTo().alert().sendKeys("Hello Sunday!!!!");
+		
 		System.out.println(driver.switchTo().alert().getText());
+		
 		driver.switchTo().alert().accept();
+		
 		driver.switchTo().defaultContent();
 		
 		driver.findElement(By.xpath("//a[@id='getwebsitebtn']")).click();

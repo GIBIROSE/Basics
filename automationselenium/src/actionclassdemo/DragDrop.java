@@ -17,8 +17,8 @@ public class DragDrop {
 		driver.manage().window().maximize();
 		driver.get("https://selenium.obsqurazone.com/drag-drop.php");
 
-		WebElement source1 = driver.findElement(By.xpath("//span[@draggable='true'][1]"));
-		//WebElement source1 = driver.findElement(By.xpath("//span[normalize-space()='Draggable n°1']"));
+		//WebElement source1 = driver.findElement(By.xpath("//span[@draggable='true'][1]"));
+		//WebElement source1 = driver.findElement(By.xpath("//span[normalize-space()='Draggable nï¿½1']"));
 		
 		
 		// WebElement
@@ -27,12 +27,17 @@ public class DragDrop {
 		// source3=driver.findElement(By.xpath("//span[@draggable='true'][3]"));
 		// WebElement
 		// source4=driver.findElement(By.xpath("//span[@draggable='true'][4]"));
+		
+		
+		WebElement source1 = driver.findElement(By.xpath("//span[@draggable='true'][1]"));
 
 		WebElement destination = driver.findElement(By.xpath("//div[@id='mydropzone']"));
 		
 		Actions act = new Actions(driver);
+		
 		act.clickAndHold(source1).moveToElement(destination).release().build().perform();
-		//act.dragAndDrop(source1, destination).build().perform();
+		
+		act.dragAndDrop(source1, destination).build().perform();
 	
 		
 		

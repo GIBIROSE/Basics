@@ -18,9 +18,10 @@ public class MouseHover {
 		
 		Actions act=new Actions(driver);
 		 WebElement signup=driver.findElement(By.xpath("//a[@id='nav-link-accountList']"));
-		 WebElement signupdrop= driver.findElement(By.xpath("//a[@class='nav-a'][1]"));
+		 
 		 act.moveToElement(signup).build().perform();
 		 Thread.sleep(3000);
+		 WebElement signupdrop= driver.findElement(By.xpath("//a[@class='nav-a'][1]"));
 		 act.moveToElement(signupdrop).click().perform();
 		 
 		
